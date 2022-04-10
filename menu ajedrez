@@ -1,3 +1,34 @@
-//MENU PARA UN AJEDREZ. EL MENU SERA PARA COMENZAR LA PARTIDA O CERRAR EL PROGRAMA SOLO PUES NO HAY MUCHAS MAS OPCIONES EN UN AJEDREZ DE DOS JUGADORES.
++//MENU PARA UN AJEDREZ. EL MENU SERA PARA COMENZAR LA PARTIDA O CERRAR EL PROGRAMA SOLO ,PUES NO HAY MUCHAS MAS OPCIONES EN UN AJEDREZ DE DOS JUGADORES.
 
-in main
+int main()
+{
+
+    printf("¿desea comenzar a jugar?\n Diga 'S' para continuar o 'N' para salir del programa");
+
+    char inicio;
+
+   
+
+
+do
+{
+    scanf(" %c", &inicio);
+    switch (inicio)
+    {
+    case 'S':
+    case 's':
+        //algun tipo de programacion para continuar
+        break;
+    case 'N':
+    case 'n':
+     printf(" que falta de respeto, adios ");
+        break;
+    default:
+
+        break;
+    }
+    
+} while (inicio !='n' || inicio != 's');
+
+    
+}

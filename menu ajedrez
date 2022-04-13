@@ -19,7 +19,7 @@ do
     {
     case 'S':
     case 's':
-    
+    // programacion pa seguir el programa 
         break;
     case 'N':
     case 'n':

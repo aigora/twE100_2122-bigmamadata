@@ -1,13 +1,15 @@
 +//MENU PARA UN AJEDREZ. EL MENU SERA PARA COMENZAR LA PARTIDA O CERRAR EL PROGRAMA SOLO ,PUES NO HAY MUCHAS MAS OPCIONES EN UN AJEDREZ DE DOS JUGADORES.
+#include<stdio.h>
+
 
 int main()
 {
 
-    printf("¿desea comenzar a jugar?\n Diga 'S' para continuar o 'N' para salir del programa");
+    printf("¿desea comenzar a jugar?\n Diga 'S' para continuar o 'N' para salir del programa\n");
 
     char inicio;
 
-   
+
 
 
 do
@@ -17,18 +19,20 @@ do
     {
     case 'S':
     case 's':
-        //algun tipo de programacion para continuar
+    
         break;
     case 'N':
     case 'n':
      printf(" que falta de respeto, adios ");
+     exit(0);
         break;
-    default:
 
-        break;
     }
-    
+
 } while (inicio !='n' || inicio != 's');
 
-    
+// continuacion de programa
+
+return 0;
+
 }

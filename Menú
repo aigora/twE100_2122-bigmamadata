@@ -1,1 +1,328 @@
-Menú Principal
+//Menú de Inicio.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+typedef struct{
+    char nombre[20];
+} jugador;
+
+void cambio (char palabra[], int n);
+
+int main(){
+    jugador player1;
+    jugador player2;
+
+    int seleccion, modalidad, dificultad, color, x, guardada, torneo, i, y, continuar  ;
+
+    printf("Bienvenido al AJEDREZ!\nElija una de las opciones siguientes:\n\n");
+    printf("\t1. Nueva Partida\n\t2. Cargar Partida Anterior\n\t3. Modo Torneo\n\t4. Instrucciones de Juego\n\t5. Ranking\n\t6. Salir del Juego\n");
+    scanf("%i", &seleccion);
+
+    do{
+        switch(seleccion){
+            case 1:
+                do{
+                printf("\nElija un modo de juego:\n\n");
+                printf("\t1. Contrarreloj (Tiempo Cronometrado)\n\t2. Normal\n\t3. Salir\n");
+                scanf("%i", &modalidad);
+                fflush(stdin);
+                }
+                while (modalidad <=  1 && modalidad >= 2 && modalidad != 3);
+                //(modalidad <=  1 && modalidad >= 2 && modalidad != 3);
+
+                    switch (modalidad){
+                        case 1:
+                            do{
+                            printf("\nElija la Dificultad del Modo:\n");
+                            printf("\t1. Principiante (15 minutos)\n\t2. Normal (10 minutos)\n\t3. Experto (5 minutos)\n\t4. Salir\n");
+                            scanf("%i", &dificultad);
+                            fflush(stdin);
+                            }
+                            while (dificultad <=  1 && dificultad >= 3 && dificultad != 4);
+
+                                 switch (dificultad){
+                                      case 1:
+                                        printf("\nHa seleccionado el NIVEL PRINCIPIANTE.\n\nPor favor, ingrese el nombre del Jugador 1:\t");
+                                        fgets(player1.nombre, 20, stdin);
+                                        cambio (player1.nombre, 20);
+                                        fflush(stdin);
+
+                                        printf("Ingrese el nombre del Jugador 2:\t");
+                                        fgets(player2.nombre, 20, stdin);
+                                        cambio (player2.nombre, 20);
+                                        fflush(stdin);
+
+                                        do{
+                                        printf("\nIntroduzca el color deseado por %s:\n", player1);
+                                        fflush(stdin);
+                                        printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
+                                        scanf("%d", &color);
+                                        }
+
+                                        while(color != 1 && color != 2 && color != 3);
+
+
+                                        if(color == 1){
+                                        printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                                        printf("El Jugador %s sera el Color Blanco.\n", player2);
+                                        }
+
+                                        else if (color == 2){
+                                        printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                        printf("El Jugador %s sera el Color Negro.\n", player2);
+                                        }
+
+                                        else {
+                                        srand(time(NULL));
+                                        x = rand() % (2-1+1) + 1;
+
+                                            if (x == 1){
+                                            printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                                            printf("El Jugador %s sera el Color Blanco.\n", player2);
+                                            }
+
+                                            else {
+                                            printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                            printf("El Jugador %s sera el Color Negro.\n", player2);
+                                            }
+                                        }
+
+                                        printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
+
+                                       break; //case 1, dificultad.
+
+
+                                     case 2:
+                                        printf("\nHa seleccionado el NIVEL INTERMEDIO.\n\nPor favor, ingrese el nombre del Jugador 1:\t");
+                                        fgets(player1.nombre, 20, stdin);
+                                        cambio (player1.nombre, 20);
+                                        fflush(stdin);
+
+                                        printf("Ingrese el nombre del Jugador 2:\t");
+                                        fgets(player2.nombre, 20, stdin);
+                                        cambio (player2.nombre, 20);
+                                        fflush(stdin);
+
+                                        do{
+                                        printf("\nIntroduzca el color deseado por %s:\n", player1);
+                                        fflush(stdin);
+                                        printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
+                                        scanf("%d", &color);
+                                        }
+
+                                        while(color != 1 && color != 2 && color != 3);
+
+
+                                        if(color == 1){
+                                        printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                                        printf("El Jugador %s sera el Color Blanco.\n", player2);
+                                        }
+
+                                        else if (color == 2){
+                                        printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                        printf("El Jugador %s sera el Color Negro.\n", player2);
+                                        }
+
+                                        else {
+                                        srand(time(NULL));
+                                        x = rand() % (2-1+1) + 1;
+
+                                            if (x == 1){
+                                            printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                                            printf("El Jugador %s sera el Color Blanco.\n", player2);
+                                            }
+
+                                            else {
+                                            printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                            printf("El Jugador %s sera el Color Negro.\n", player2);
+                                            }
+                                        }
+
+                                        printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
+
+                                       break; //case 2, dificultad.
+
+
+                                    case 3:
+                                        printf("\nHa seleccionado el NIVEL AVANZADO.\n\nPor favor, ingrese el nombre del Jugador 1:\t");
+                                        fgets(player1.nombre, 20, stdin);
+                                        cambio (player1.nombre, 20);
+                                        fflush(stdin);
+
+                                        printf("Ingrese el nombre del Jugador 2:\t");
+                                        fgets(player2.nombre, 20, stdin);
+                                        cambio (player2.nombre, 20);
+                                        fflush(stdin);
+
+                                        do{
+                                        printf("\nIntroduzca el color deseado por %s:\n", player1);
+                                        fflush(stdin);
+                                        printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
+                                        scanf("%d", &color);
+                                        }
+
+                                        while(color != 1 && color != 2 && color != 3);
+
+
+                                        if(color == 1){
+                                        printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                                        printf("El Jugador %s sera el Color Blanco.\n", player2);
+                                        }
+
+                                        else if (color == 2){
+                                        printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                        printf("El Jugador %s sera el Color Negro.\n", player2);
+                                        }
+
+                                        else {
+                                        srand(time(NULL));
+                                        x = rand() % (2-1+1) + 1;
+
+                                            if (x == 1){
+                                            printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                                            printf("El Jugador %s sera el Color Blanco.\n", player2);
+                                            }
+
+                                            else {
+                                            printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                            printf("El Jugador %s sera el Color Negro.\n", player2);
+                                            }
+                                        }
+
+                                        printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
+
+                                       break; //case 3, dificultad.
+
+                                    }
+
+                            break; //case 1, modalidad.
+
+                        case 2:
+                            printf("\nHa seleccionado la modalidad de juego NORMAL. Aqui no habra tiempo de partida.\n\nPor favor, ingrese el nombre del Jugador 1:\t");
+                            fgets(player1.nombre, 20, stdin);
+                            cambio (player1.nombre, 20);
+                            fflush(stdin);
+
+                            printf("Ingrese el nombre del Jugador 2:\t");
+                            fgets(player2.nombre, 20, stdin);
+                            cambio (player2.nombre, 20);
+                            fflush(stdin);
+
+                            do{
+                            printf("\nIntroduzca el color deseado por %s:\n", player1);
+                            printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
+                            scanf("%d", &color);
+                            }
+
+                            while(color != 1 && color != 2 && color != 3);
+
+
+                            if(color == 1){
+                            printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                            printf("El Jugador %s sera el Color Blanco.\n", player2);
+                            }
+
+                            else if (color == 2){
+                                printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                printf("El Jugador %s sera el Color Negro.\n", player2);
+                            }
+
+                            else {
+                                srand(time(NULL));
+                                x = rand() % (2-1+1) + 1;
+
+                                if (x == 1){
+                                    printf("\nEl Jugador %s sera el Color Negro.\n", player1);
+                                    printf("El Jugador %s sera el Color Blanco.\n", player2);
+                                }
+
+                                else {
+                                printf("\nEl jugador %s sera el Color Blanco.\n", player1);
+                                printf("El Jugador %s sera el Color Negro.\n", player2);
+                                }
+                            }
+
+
+                            printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
+
+                        break; //case 2, modalidad.
+                            } //cierre switch modalidad.
+
+             case 2:
+                do{
+                printf("\nElija una de la partidas a continuar:\n\n");
+                printf("\t1. Datos 1 (a la espera de ver tema Ficheros)\n\t2. Datos 2 (a la espera de ver tema Ficheros)\n\t3. Datos 3 (a la espera de ver tema Ficheros)\n\t4. Salir\n");
+                scanf("%i", &guardada);
+                fflush(stdin);
+                }
+                while (guardada <=  1 && guardada >= 3 && guardada != 4);
+
+
+             break;
+
+             case 3:
+                do{
+                printf("\nBienvenido al MODO TORNEO. Por favor, indique el numero de participantes totales:\t(Maximo 8 jugadores)\n");
+                scanf("%d", &torneo);
+                jugador players[torneo];
+                    for (i = 0; i < torneo; i++){
+                    printf("\nIntroduzca el Nombre del Jugador %d:\n", i + 1);
+                    scanf("%s", players[i].nombre);
+                    printf("\n");
+                    }
+                }
+                while (torneo < 1 || torneo > 8);
+
+                /*do{
+                printf("\n\nHa seleccionado un total de %d jugadores para conformar el TORNEO:\t ¿Desea continuar?\n\t1. Si\n\t2. No\n\t3. Salir\n"); ///Revisar opciones.
+                scanf("%d", &continuar);
+                }
+                while (continuar <= 1 && continuar !=3);*/
+
+                printf("\nLos enfrentamientos seran los siguientes:\n");
+
+                srand(time(NULL));
+                y = rand() % (8-1+1) + 1;
+                for (i = 0; i < torneo; i++){
+                    printf("%d\t", y);
+                }
+
+                ///Terminar sucesión de Sorteo.
+
+             break;
+
+             case 4:
+                 printf("\nEn esta seccion encontraras tips que te ayudaran a comprender el Ajedrez.\n");
+
+             break;
+
+             case 5:
+                printf("Ranking");
+
+             break;
+
+
+        } //cierre switch seleccion.
+
+    } //cierre do inicio programa.
+
+    while(seleccion <= 1 && seleccion >= 5);
+    return 0;
+} //cierre main;
+
+
+void cambio (char palabra[], int n){
+    int i;
+
+    for (i = 0; i < n; i++){
+        if (palabra[i] == '\n'){
+            palabra[i] = '\0';
+        }
+    }
+}
+
+
+/// Única implementación de mejora que se me ocurre es que en los submenús la función "salir" en vez de escapar del programa,
+/// funcione como un atrás en los menús.

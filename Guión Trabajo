@@ -42,6 +42,7 @@ Movimentos de piezas:
         - caballo: el caballo ocupa una posicion especial, pues se mueve en formacion de ele de tres espacios a lo largo y dos a lo ancho, y en especial puede saltar a las otras piezas, osea que su movimiento no esta bloqueado.
         - reina: se mueve en las colubnas y diagonales el numero deseado de pasos.
         - rey: se meve en las colubnas y diagonales, pero solo a un paso de distancia sulla.
+        - enrocar: al tener una torre y rey sin piezas por el medio y sin haber movido niguna de esta, se puede mover el rey y la torre a la vez de forma que quede el rey a la izquierda y la torre a la derecha pegados asi:  T..R --> .RT.
     
 
 

@@ -3,37 +3,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
 
 
 typedef struct{
     char nombre[20];
+    int num;
 } jugador;
 
 void cambio (char palabra[], int n);
+int buscarNumero(int numero, int vector[], int n);
 
 int main(){
     jugador player1;
     jugador player2;
 
-    int seleccion, modalidad, dificultad, color, x, guardada, torneo, i, y, continuar, ayuda, piezas, escape, reglas, acabar;
+    int seleccion, modalidad, dificultad, color, x, guardada, torneo, i, j, y, continuar, ayuda, piezas, escape, reglas, acabar, jugartorneo, jugar, aux2;
+    int min = 1, aux = 0, fstop;
+    int num_aletorio, numeros[20] = {0};
 
     menuPrincipal:
+    do{
     printf("Bienvenido al AJEDREZ!\nElija una de las opciones siguientes:\n\n");
     printf("\t1. Nueva Partida\n\t2. Cargar Partida Anterior\n\t3. Modo Torneo\n\t4. Instrucciones de Juego\n\t5. Ranking\n\t6. Salir del Juego\n");
     scanf("%i", &seleccion);
+    }
 
-    do{
+    while (seleccion != 1 && seleccion != 2 && seleccion != 3 && seleccion != 4 && seleccion != 5 && seleccion != 6);
+
         switch(seleccion){
             case 1:
-                do{
                 menuNuevaPartida:
+                do{
                 printf("\nElija un modo de juego:\n\n");
                 printf("\t1. Contrarreloj (Tiempo Cronometrado)\n\t2. Normal\n\t3. Salir\n");
                 scanf("%i", &modalidad);
                 fflush(stdin);
                 }
-                while (modalidad <=  1 && modalidad >= 2 && modalidad != 3);
+                while (modalidad !=  1 && modalidad != 2 && modalidad != 3);
                 //(modalidad <=  1 && modalidad >= 2 && modalidad != 3);
 
                     switch (modalidad){
@@ -44,7 +50,7 @@ int main(){
                             scanf("%i", &dificultad);
                             fflush(stdin);
                             }
-                            while (dificultad <  1 && dificultad > 4);
+                            while (dificultad != 1 && dificultad != 2 && dificultad != 3 && dificultad != 4);
 
                                  switch (dificultad){
                                       case 1:
@@ -95,10 +101,10 @@ int main(){
 
                                         printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
 
-                                       break; //case 1, dificultad.
+                                      break; //case 1, dificultad.
 
 
-                                     case 2:
+                                      case 2:
                                         printf("\nHa seleccionado el NIVEL INTERMEDIO.\n\nPor favor, ingrese el nombre del Jugador 1:\t");
                                         fgets(player1.nombre, 20, stdin);
                                         cambio (player1.nombre, 20);
@@ -146,10 +152,10 @@ int main(){
 
                                         printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
 
-                                       break; //case 2, dificultad.
+                                      break; //case 2, dificultad.
 
 
-                                    case 3:
+                                      case 3:
                                         printf("\nHa seleccionado el NIVEL AVANZADO.\n\nPor favor, ingrese el nombre del Jugador 1:\t");
                                         fgets(player1.nombre, 20, stdin);
                                         cambio (player1.nombre, 20);
@@ -197,12 +203,12 @@ int main(){
 
                                         printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
 
-                                    break; //case 3, dificultad.
+                                      break; //case 3, dificultad.
 
-                                    case 4:
+                                      case 4:
                                         system("cls");
                                         goto menuNuevaPartida;
-                                    break;
+                                      break;
 
                                     }//fin dificultad.
 
@@ -255,7 +261,7 @@ int main(){
 
 
                             printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1, player2);
-                            fflush(stdin);
+
                         break; //case 2, modalidad.
 
                         case 3:
@@ -264,6 +270,8 @@ int main(){
                         break;
                     } //cierre switch modalidad.
 
+             break; //case 1, selección.
+
              case 2:
                 do{
                 printf("\nElija una de la partidas a continuar:\n\n");
@@ -271,48 +279,247 @@ int main(){
                 scanf("%i", &guardada);
                 fflush(stdin);
                 }
-                while (guardada <  1 && guardada > 4);
+                while (guardada != 1 && guardada != 2 && guardada != 3 && guardada != 4);
 
-                    switch (guardada){
-                        case 4:
-                            system("cls");
-                            goto menuPrincipal;
-                        break;
+                switch (guardada){
+                    case 4:
+                    system("cls");
+                    goto menuPrincipal;
+                    break;
+
                     }
-
-
-             break;
+             break; //case 2, selección.
 
              case 3:
+                menuTorneo:
                 do{
-                printf("\nBienvenido al MODO TORNEO. Por favor, indique el numero de participantes totales:\t(Maximo 8 jugadores)\n");
-                scanf("%d", &torneo);
-                jugador players[torneo];
-                    for (i = 0; i < torneo; i++){
-                    printf("\nIntroduzca el Nombre del Jugador %d:\n", i + 1);
-                    scanf("%s", players[i].nombre);
-                    printf("\n");
-                    }
+                printf("\nHa entrado usted en el modo TORNEO, desea continuar:\n\t1. Si\n\t2. Salir\n");
+                scanf("%d", &jugartorneo);
                 }
-                while (torneo < 1 || torneo > 8);
+                while (jugartorneo != 1 && jugartorneo != 2);
 
-                /*do{
-                printf("\n\nHa seleccionado un total de %d jugadores para conformar el TORNEO:\t ¿Desea continuar?\n\t1. Si\n\t2. No\n\t3. Salir\n"); ///Revisar opciones.
-                scanf("%d", &continuar);
-                }
-                while (continuar <= 1 && continuar !=3);*/
+                switch (jugartorneo){
+                    case 1:
+                        do{
+                        printf("\n\nBienvenido al MODO TORNEO. Por favor, indique el numero de participantes totales:\t(4 u 8 jugadores)\n");
+                        scanf("%d", &torneo);
+                        jugador players[torneo];
+                        }
+                        while (torneo != 4 && torneo != 8);
 
-                printf("\nLos enfrentamientos seran los siguientes:\n");
+                        //aux2 == torneo;
+                        //jugador players[aux2];
+                        //jugador players[torneo];
+                        printf("\n");
 
-                srand(time(NULL));
-                y = rand() % (8-1+1) + 1;
-                for (i = 0; i < torneo; i++){
-                    printf("%d\t", y);
-                }
+                        for (i = 0; i < torneo; i++){
+                        printf("Introduzca el Nombre del Jugador %d:\t", i + 1);
+                        jugador players[torneo];
+                        scanf("%s", players[i].nombre);
+                        aux = aux + 1;
+                        players[i].num = aux;
+                        }
 
-                ///Terminar sucesión de Sorteo.
+                        printf("\n\n");
 
-             break;
+                        srand(time(NULL));
+
+                        for(i = 0; i < torneo; i++){
+                            do{
+                            num_aletorio = min + rand()% (torneo - min + 1);
+                            fstop = buscarNumero (num_aletorio, numeros, torneo);
+                            }
+                            while(fstop);
+
+                        numeros[i] = num_aletorio;
+                        }
+
+
+                        if (torneo == 4){
+
+                        printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:");
+
+                        for (i = 0; i < torneo - 3; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                //jugador players[torneo];
+                                printf(" %s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf(" VS ");
+
+                        for (i = 1; i < torneo - 2; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                //jugador players[torneo];
+                                printf("%s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf("\n\tSemifinal 2:");
+
+                        for (i = 2; i < torneo - 1; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                //jugador players[torneo];
+                                printf(" %s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf(" VS ");
+
+                        for (i = 3; i < torneo; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                //jugador players[torneo];
+                                printf("%s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        }//Cierre if (torneo == 4)
+
+
+                        if (torneo == 8){
+
+                        printf("Los emparejamientos seran los siguientes:\n\tCuartos de Final 1:");
+                        for (i = 0; i < torneo - 7; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                //jugador players[torneo];
+                                printf(" %s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf(" VS ");
+
+                        for (i = 1; i < torneo - 6; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                printf("%s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf("\n\tCuartos de Final 2:");
+
+                        for (i = 2; i < torneo - 5; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                printf(" %s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf(" VS ");
+
+                        for (i = 3; i < torneo - 4; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                printf("%s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf("\n\tCuartos de Final 3:");
+
+                        for (i = 4; i < torneo - 3; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                printf(" %s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf(" VS ");
+
+                        for (i = 5; i < torneo - 2; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                printf("%s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf("\n\tCuartos de Final 4:");
+
+                        for (i = 6; i < torneo - 1; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                printf(" %s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        printf(" VS ");
+
+                        for (i = 7; i < torneo; i++){
+                            for (j = 0; j < torneo; j++){
+                                jugador players[torneo];
+                                if (numeros [i] == players[j].num){
+                                printf("%s", players[j].nombre);
+                                fflush(stdin);
+                                }
+                            }
+                        }
+
+                        } //Cierre if (torneo == 8)
+
+                        do{
+                        printf("\n\nDesea continuar con el primer partido:\n\t1. Si\n\t2. Salir\n");
+                        scanf("%d", &jugar);
+                        }
+                        while (jugar != 1 && jugar != 2);
+
+
+                        switch (jugar){
+                            case 1:
+                                printf("\nConstruccion");
+                            break;
+
+                            case 2:
+                                system("cls");
+                                goto menuTorneo;
+                            break;
+                        }
+
+                    break; //case 1, jugartorneo.
+
+                    case 2:
+                        system("cls");
+                        goto menuPrincipal;
+                    break;
+
+                } //Cierre switch jugatorneo.
+
+             break; //case 3, selección.
 
              case 4:
                 menuAprendeaJugar:
@@ -321,7 +528,7 @@ int main(){
                 printf("\t1. Configuracion del Tablero de Ajedrez\n\t2. Movimientos de las Piezas\n\t3. Reglas Especiales\n\t4. Quien Empieza a Jugar\n\t5. Ganar una Partida\n\t6. Salir\n");
                 scanf("%d", &ayuda);
                 }
-                while (ayuda <=  1 && ayuda >= 6);
+                while (ayuda !=  1 && ayuda != 2 && ayuda != 3 && ayuda != 4 && ayuda != 5 && ayuda != 6);
 
                     switch (ayuda){
                         case 1:
@@ -340,7 +547,7 @@ int main(){
                             printf("\n\nMovimiento de cada una de las piezas del tablero:\n\t1. Rey\n\t2. Reina o Dama\n\t3. Torre\n\t4. Alfil\n\t5. Caballo\n\t6. Peon\n\t7. Salir\n");
                             scanf("%d", &piezas);
                             }
-                            while (piezas <=  1 && piezas >= 7);
+                            while (piezas !=  1 && piezas != 2 && piezas != 3 && piezas != 4 && piezas != 5 && piezas != 6 && piezas != 7);
 
                                 switch (piezas){
                                     case 1:
@@ -407,7 +614,7 @@ int main(){
                             printf("\t1. Coronar un Peon\n\t2. Capturar al Paso (en passant)\n\t3. Enroque\n\t4. Salir\n");
                             scanf("%d", &reglas);
                             }
-                            while (reglas <=  1 && reglas >= 3 && reglas != 4);
+                            while (reglas !=  1 && reglas != 2 && reglas != 3 && reglas != 4);
                                 switch (reglas){
                                     case 1:
                                         printf("\n\nLos peones tienen otra habilidad especial: si llegan al otro extremo del tablero pueden convertirse en cualquier otra pieza excepto en un rey.A esta jugada se le llama coronacion.\n");
@@ -456,7 +663,7 @@ int main(){
                             printf("\t1. Jaque Mate\n\t2. En Tablas o Empate\n\t3. Rendirse\n\t4. Perder por tiempo\n\t5. Salir\n");
                             scanf("%d", &acabar);
                             }
-                            while (acabar <=  1 && acabar >= 5);
+                            while (acabar != 1 && acabar != 2 && acabar != 3 && acabar != 4 && acabar != 5);
                                 switch (acabar){
                                     case 1:
                                         printf("\n\nEl objetivo del juego es dar jaque mate al rey del adversario. Esto ocurre cuando el rey esta en jaque y no puede salir de esa situacion. Solo hay tres formas por las que un rey puede escapar de un jaque:\n\t- Moverse a una casilla segura.\n\t- Bloquear el jaque interponiendo otra pieza de su propio bando\n\t- Capturar la pieza que amenaza al rey\nSi un rey no puede escapar del jaque, la partida ha terminado.\n");
@@ -514,14 +721,17 @@ int main(){
                 goto menuPrincipal;
              break;
 
+             case 6:
+
+             break;
+
         } //cierre switch seleccion.
 
-    } //cierre do inicio programa.
+    //} //cierre do inicio programa.
 
-    while(seleccion <= 1 && seleccion >= 5);
     return 0;
-} //cierre main;
 
+} //cierre main;
 
 
 void cambio (char palabra[], int n){
@@ -532,4 +742,14 @@ void cambio (char palabra[], int n){
             palabra[i] = '\0';
         }
     }
+}
+
+int buscarNumero(int numero, int vector[], int n){
+    int i, stop = 0;
+
+    for (i = 0; i < n && stop == 0; i++){
+        if(vector[i] == numero)
+            stop = 1;
+    }
+    return stop;
 }

@@ -1,8 +1,8 @@
 #include "stdio.h"
 #include "defs.h"
 
-int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New);
- int mov_valido(struct COORDENADAS,struct COORDENADAS);
+int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New);//
+ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)
  int rn_enjake2(struct COORDENADAS);
  int rb_enjake2(struct COORDENADAS);
  int rn_enjake();
@@ -117,39 +117,39 @@ void tabla()//esto se bugea
 
 int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
 {
-    char unidad,newunidad;
+    char unidad,newunidad;// variable para detectar la pieza en revision
     int color,fila,col,i,j;
 
-    unidad=tablero[Curr.fila][Curr.col];
+    unidad=tablero[Curr.fila][Curr.col];// asignacion de piezas
     newunidad=tablero[New.fila][New.col];
 
-    if(isalpha(newunidad))
-            color=islower(newunidad);
+    if(isalpha(newunidad))// se verifica que la letra da la pieza existe 
+            color=islower(newunidad);// si esta en minusculas se asigna como negra ,sino se queda como blanca
     else
-            color=-1;
+            color=-1;// error
 
-    if(unidad=='T')
-    {   if(New.fila==Curr.fila-1&&New.col==Curr.col&&color!=0)
+    if(unidad=='T')// verificacion de la torre blanca (en todos los ifs se debe incluir un control de color) , vamos ha listar todas las opciones no posibles para una torre
+    {   if(New.fila==Curr.fila-1&&New.col==Curr.col&&color!=0)//control de misma fila
             return 1;
-        else if(New.fila==Curr.fila-1&&New.col==Curr.col-1&&color!=0)
+        else if(New.fila==Curr.fila-1&&New.col==Curr.col-1&&color!=0)//control de  diagonales
             return 1;
-        else if(New.fila==Curr.fila&&New.col==Curr.col-1&&color!=0)
+        else if(New.fila==Curr.fila&&New.col==Curr.col-1&&color!=0)//control de fila colubna
             return 1;
-        else if(New.fila==Curr.fila+1&&New.col==Curr.col-1&&color!=0)
+        else if(New.fila==Curr.fila+1&&New.col==Curr.col-1&&color!=0)// control de posiciones adllacentes en fila 
             return 1;
-        else if(New.fila==Curr.fila+1&&New.col==Curr.col&&color!=0)
+        else if(New.fila==Curr.fila+1&&New.col==Curr.col&&color!=0)// movimientos fuera de la cruz + en la que se mueve la torre
             return 1;
-        else if(New.fila==Curr.fila+1&&New.col==Curr.col+1&&color!=0)
+        else if(New.fila==Curr.fila+1&&New.col==Curr.col+1&&color!=0)// movimientos en la cruz 
             return 1;
-        else if(New.fila==Curr.fila&&New.col==Curr.col+1&&color!=0)
+        else if(New.fila==Curr.fila&&New.col==Curr.col+1&&color!=0)//saltos de fila y colubna hacia la derecha
             return 1;
-        else if(New.fila==Curr.fila-1&&New.col==Curr.col+1&&color!=0)
+        else if(New.fila==Curr.fila-1&&New.col==Curr.col+1&&color!=0)//saltos de fila y colubna hacia la izquierda
             return 1;
         else
-            return 0;
+            return 0;// cualquier otra cosa va bien
     }
 
-    else if(unidad=='r')
+    else if(unidad=='t')// toree negra, lo mismo pero del reves
     {   if(New.fila==Curr.fila-1&&New.col==Curr.col&&color<=0)
             return 1;
         else if(New.fila==Curr.fila-1&&New.col==Curr.col-1&&color<=0)
@@ -170,7 +170,7 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
             return 0;
     }
 
-    else if(unidad=='M')
+    else if(unidad=='M')//movimientos de la reina, al ser una convinacion de una torre y alfil nos basta con verificar las respectivas funciones y punto
     {  tablero[Curr.fila][Curr.col]='T';
        i=mov_valido2(Curr,New);
 
@@ -179,10 +179,10 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
 
        tablero[Curr.fila][Curr.col]='M';
 
-       return i+j;
+       return i+j;// posicion final de la reina
     }
 
-    else if(unidad=='m')
+    else if(unidad=='m')// mismo pero negra
     {  tablero[Curr.fila][Curr.col]='t';
        i=mov_valido2(Curr,New);
 
@@ -194,25 +194,25 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
        return i+j;
     }
 
-    else if(unidad=='P')
+    else if(unidad=='P')//para el peon blanco solo se puede mover hacia delante 
     {
 
-            if(New.fila==Curr.fila-1&&New.col==Curr.col+1)
+            if(New.fila==Curr.fila-1&&New.col==Curr.col+1)// verivicacion de los lados
                     if(color>0)
                             return 1;
                     else
                             return 0;
-            else if(New.fila==Curr.fila-1&&New.col==Curr.col-1)
+            else if(New.fila==Curr.fila-1&&New.col==Curr.col-1)// movimiento en diagonal hacia la abajo izquierda
                     if(color>0)
                             return 1;
                     else
                             return 0;
-            else if(New.fila==Curr.fila-1&&New.col==Curr.col)
+            else if(New.fila==Curr.fila-1&&New.col==Curr.col)// movimiento hacia atras
                     if(color<0)
                         return 1;
                     else
                         return 0;
-            else if(New.fila==Curr.fila-2&&New.col==Curr.col&&Curr.fila==6)
+            else if(New.fila==Curr.fila-2&&New.col==Curr.col&&Curr.fila==6)// cualquier movimiento fuera mayor a una casilla 
                     if(color<0&&tablero[New.fila+1][New.col]=='\0')
                         return 1;
                     else
@@ -224,7 +224,7 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
 
 
 
-    else if(unidad=='p')
+    else if(unidad=='p')// lo mismo en negro
     {
 
             if(New.fila==Curr.fila+1&&New.col==Curr.col+1)
@@ -553,7 +553,7 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
 
 }
 
-int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)
+int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)// chequeo de todos los moivimentos y posiciones en la tabla
 {
 
     int s;
@@ -605,7 +605,7 @@ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)
 }
 
 
-int b_total_mov_validos()
+int b_total_mov_validos()// contador de los movimientos validos jugados en blancas(usar para el ratreo en el menu)
 {
     int num_mov_validos=0;
     struct COORDENADAS Curr,New;
@@ -628,7 +628,7 @@ int b_total_mov_validos()
 
 
 
-int n_total_mov_validos()
+int n_total_mov_validos()// contador de los movimientos validos jugados en negras(usar para el ratreo en el menu)
 {
     int num_mov_validos=0;
     struct COORDENADAS Curr,New;
@@ -650,7 +650,7 @@ int n_total_mov_validos()
 }
 
 
-void b_jakemate()
+void b_jakemate()//chequeo del jakemate
 {
     if(rb_enjake()==1&&b_total_mov_validos()==0)
     {       printf("\nJake mate, ganan negras\n");
@@ -659,7 +659,7 @@ void b_jakemate()
 
 }
 
-void n_jakemate()
+void n_jakemate()//en negras
 {
     if((rn_enjake()==1)&&(n_total_mov_validos()==0))
     {       printf("\nJake mate, ganan blancas\n");
@@ -668,21 +668,21 @@ void n_jakemate()
 
 }
 
-void b_jake()
+void b_jake()// chequeo de jake
 {
     if(rb_enjake()==1&&b_total_mov_validos()>0)
             printf("\nJake\n");
 
 }
 
-void n_jake()
+void n_jake()//en negreas
 {
     if(rn_enjake()==1&&n_total_mov_validos()>0)
             printf("\nIt's Check\n");
 
 }
 
-void b_reyaogado()
+void b_reyaogado()// quequeo de ahogado
 {
     if(rb_enjake()==0&&b_total_mov_validos()==0)
     {   printf("\nEmpate, rey aogado\n");
@@ -692,7 +692,7 @@ void b_reyaogado()
 }
 
 
-void n_reyaogado()
+void n_reyaogado()//en negras
 {
     if(rn_enjake()==0&&b_total_mov_validos()==0)
     {   printf("\nEmpate, rey aogado\n");
@@ -701,7 +701,7 @@ void n_reyaogado()
 
 }
 
-int rn_enjake2(struct COORDENADAS Curr)
+int rn_enjake2(struct COORDENADAS Curr)// funcion de chequeo del jake
 {
 
     int i,j,fila,col;
@@ -710,7 +710,7 @@ int rn_enjake2(struct COORDENADAS Curr)
 
     for(i=0;i<8;++i)
         for(j=0;j<8;++j)
-            if(tablero[i][j]=='r')
+            if(tablero[i][j]=='t')
                     goto out;
     out:
     rnpos.fila=i;
@@ -718,7 +718,7 @@ int rn_enjake2(struct COORDENADAS Curr)
 
     unidad=tablero[Curr.fila][Curr.col];
 
-    if(unidad=='R')
+    if(unidad=='T')
     {   if(rnpos.fila==Curr.fila-1&&rnpos.col==Curr.col)
             return 1;
         else if(rnpos.fila==Curr.fila-1&&rnpos.col==Curr.col-1)
@@ -897,7 +897,7 @@ int rb_enjake2(struct COORDENADAS Curr)
 
     for(i=0;i<8;++i)
         for(j=0;j<8;++j)
-            if(tablero[i][j]=='K')
+            if(tablero[i][j]=='R')
                     goto out2;
     out2:
     rbpos.fila=i;
@@ -905,7 +905,7 @@ int rb_enjake2(struct COORDENADAS Curr)
 
     unidad=tablero[Curr.fila][Curr.col];
     
-    if(unidad=='r')
+    if(unidad=='t')
     {   if(rbpos.fila==Curr.fila-1&&rbpos.col==Curr.col)
             return 1;
         else if(rbpos.fila==Curr.fila-1&&rbpos.col==Curr.col-1)

@@ -1,24 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<ctype.h>
+#include<dos.h>
+#include<time.h>
+#include<stdlib.h>
 
-void main ()
+ struct COORDENADAS//estructura principal
+{   int fila;
+    int col;
+};
+
+void main()
 {
+
+
   FILE *guardado;
 
-  char tablero[8][8], sn;
+  char  sn;
 
-  //tras esta linaea deberia de estar todo el codigo del ajedrez, pero lo que yo no se es como guardar el estado moomentaneo de un programa, refiriendome ,en este caso, al estado de la tabla
+  struct COORDENADAS pos;
 
-//suponiendo que ya se han hecho movvimientos se deveria de guardar el tablero
 
-  printf("quieres guardar la partida? s/n");
+  //tras esta linaea deberia de estar todo el codigo del ajedrez, pero lo que yo no se es como guardar el estado moomentaneo de un programa, refiriendome ha este caso al estado de la tabla
 
-  scanf( " %c", &sn);
+  char tablero[8][8]={     't','c','a','m','r','a','c','t',
+                        'p','p','p','p','p','p','p','p',
+                        '\0','\0','\0','\0','\0','\0','\0','\0',
+                        '\0','\0','\0','\0','\0','\0','\0','\0',
+                        '\0','\0','\0','\0','\0','\0','\0','\0',
+                        '\0','\0','\0','\0','\0','\0','\0','\0',
+                        'P','P','P','P','P','P','P','P',
+                        'T','C','A','M','R','A','C','R'      };
 
- switch(sn);
+
+ scanf( " %c", &sn);
+
+if( sn=='s')
  {
-   case 's':
-   {
+
       guardado = fopen("partidaguardada.txt", "w");
       if (guardado == NULL)
       {
@@ -27,18 +45,19 @@ void main ()
       }
       else
       {
-       fprintf(guardado, "%-2c|",  tablero[8][8]);
+       fprintf(guardado,"   0 1 2 3 4 5 6 7\n");
+       for (pos.fila=0;pos.fila<8;++pos.fila)
+         {
+            fprintf(guardado,"%d |",pos.fila);
+            for(pos.col=0;pos.col<8;++pos.col)
+            fprintf(guardado,"%-2c",tablero[pos.fila][pos.col]);
+            fprintf(guardado,"\n");
+         }
+       fclose(guardado);
       }
-   }
-   case 'n':
-   {
-     //aqui programar para continuar la partida normalmente
-   }
-  //aqui la programazion necesaria para cargar el programa
 
  }
-
+ fclose(guardado);
 return 0;
 }
 
-  

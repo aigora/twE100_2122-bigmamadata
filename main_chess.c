@@ -2,7 +2,7 @@
 #include "defs.h"
 
 int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New);//
- int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)
+ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New);
  int rn_enjake2(struct COORDENADAS);
  int rb_enjake2(struct COORDENADAS);
  int rn_enjake();

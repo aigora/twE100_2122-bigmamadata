@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1655345983 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\menú 2.0.0.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+
+1655329859 c:\users\pablo\desktop\ajedrez\menú 2.0.0\instrucciones.h
+
+1655338438 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\instrucciones.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655345574 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\torneo.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+
+1655337738 c:\users\pablo\desktop\ajedrez\menú 2.0.0\torneo.h
+
+1655335104 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\prueba.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655338336 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\cargapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655336603 c:\users\pablo\desktop\ajedrez\menú 2.0.0\cargapartida.h
+
+1655337580 c:\users\pablo\desktop\ajedrez\menú 2.0.0\nuevapartida.h
+
+1655338491 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\nuevapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655345961 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\cargapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655338491 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\nuevapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

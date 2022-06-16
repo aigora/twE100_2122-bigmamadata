@@ -134,25 +134,25 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
     }
 
     else if(unidad=='M')
-    {  tablero[Curr.fila][Curr.col]='R';
+    {  tablero[Curr.fila][Curr.col]='T';
        i=mov_valido2(Curr,New);
 
-       tablero[Curr.fila][Curr.col]='B';
+       tablero[Curr.fila][Curr.col]='A';
        j=mov_valido2(Curr,New);
 
-       tablero[Curr.fila][Curr.col]='Q';
+       tablero[Curr.fila][Curr.col]='M';
 
        return i+j;
     }
 
     else if(unidad=='m')
-    {  tablero[Curr.fila][Curr.col]='r';
+    {  tablero[Curr.fila][Curr.col]='t';
        i=mov_valido2(Curr,New);
 
-       tablero[Curr.fila][Curr.col]='b';
+       tablero[Curr.fila][Curr.col]='a';
        j=mov_valido2(Curr,New);
 
-       tablero[Curr.fila][Curr.col]='q';
+       tablero[Curr.fila][Curr.col]='m';
 
        return i+j;
     }
@@ -860,7 +860,7 @@ int rb_enjake2(struct COORDENADAS Curr)
 
     for(i=0;i<8;++i)
         for(j=0;j<8;++j)
-            if(tablero[i][j]=='K')
+            if(tablero[i][j]=='R')
                     goto out2;
     out2:
     rbpos.fila=i;

@@ -2,7 +2,6 @@
 #include "defs.h"
 
 
-void mainchess();
 
 
 

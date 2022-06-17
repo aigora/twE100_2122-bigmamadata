@@ -12,7 +12,7 @@ void guardar()
 
 
 
-  guardado = fopen("partidaguardada.txt", "w");
+  guardado = fopen("guardado.txt", "w");
 
 
   if (guardado == NULL)

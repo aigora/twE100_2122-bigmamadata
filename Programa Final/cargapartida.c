@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include "instrucciones.h"
+#include "torneo.h"
+#include "cargapartida.h"
+#include "nuevapartida.h"
+#include "interfazjugadores.h"
+#include "interfazjugadoresmenu.h"
+#include "interfazpartida.h"
+#include "seleccioncolor.h"
+
 
 void printcargarpartida(){
     int guardada;

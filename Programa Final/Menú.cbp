@@ -41,14 +41,35 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="cargapartida.h" />
+		<Unit filename="defs.h" />
 		<Unit filename="instrucciones.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="instrucciones.h" />
+		<Unit filename="interfazjugadores.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfazjugadores.h" />
+		<Unit filename="interfazjugadoresmenu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfazjugadoresmenu.h" />
+		<Unit filename="interfazpartida.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="interfazpartida.h" />
+		<Unit filename="mainchess.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mainchess.h" />
 		<Unit filename="nuevapartida.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="nuevapartida.h" />
+		<Unit filename="seleccioncolor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="seleccioncolor.h" />
 		<Unit filename="torneo.c">
 			<Option compilerVar="CC" />
 		</Unit>

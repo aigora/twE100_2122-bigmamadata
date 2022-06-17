@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include "instrucciones.h"
+#include "torneo.h"
+#include "cargapartida.h"
+#include "nuevapartida.h"
+#include "interfazjugadores.h"
+#include "interfazjugadoresmenu.h"
+#include "interfazpartida.h"
+#include "seleccioncolor.h"
+
 
 void printinstruc(){
     int ayuda, piezas, escape, reglas, acabar;
@@ -8,10 +18,10 @@ void printinstruc(){
         menuAprendeaJugar:
                 printf("\nEn esta seccion encontraras distintas ayudas para comprender mejor el Juego del Ajedrez.\n\n");
                 do{
-                printf("\t1. Configuracion del Tablero de Ajedrez\n\t2. Movimientos de las Piezas\n\t3. Reglas Especiales\n\t4. Quien Empieza a Jugar\n\t5. Ganar una Partida\n\t6. Salir\n");
+                printf("\t1. Configuracion del Tablero de Ajedrez\n\t2. Movimientos de las Piezas\n\t3. Como Jugar\n\t4. Reglas Especiales\n\t5. Quien Empieza a Jugar\n\t6. Ganar una Partida\n\t7. Salir\n");
                 scanf("%d", &ayuda);
                 }
-                while (ayuda !=  1 && ayuda != 2 && ayuda != 3 && ayuda != 4 && ayuda != 5 && ayuda != 6);
+                while (ayuda !=  1 && ayuda != 2 && ayuda != 3 && ayuda != 4 && ayuda != 5 && ayuda != 6 && ayuda != 7);
 
                     switch (ayuda){
                         case 1:
@@ -90,7 +100,17 @@ void printinstruc(){
 
                         break; //case 2, ayuda.
 
+
                         case 3:
+                            printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tamaño para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
+                            printf("\t(Pulse una tecla para volver)");
+                            getch();
+                            system("cls");
+                            goto menuAprendeaJugar;
+                            break;
+
+
+                        case 4:
                             menuReglasEspeciales:
                             printf("\n\nHay unas reglas especiales de ajedrez que fueron creadas para hacer el juego mas divertido e interesante:\n");
                             do{
@@ -131,7 +151,7 @@ void printinstruc(){
 
                         break; //case 3, ayuda.
 
-                        case 4:
+                        case 5:
                             printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una pequeña ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
                             printf("\t(Pulse una tecla para volver)");
                             getch();
@@ -139,7 +159,7 @@ void printinstruc(){
                             goto menuAprendeaJugar;
                         break;
 
-                        case 5:
+                        case 6:
                             menuComoGanar:
                             printf("\n\nHay varias formas de terminar una partida de ajedrez:\n");
                             do{

@@ -1,7 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h> // libreria para el uso de rand()
+#include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include "instrucciones.h"
+#include "torneo.h"
+#include "cargapartida.h"
+#include "nuevapartida.h"
+#include "interfazjugadores.h"
+#include "interfazjugadoresmenu.h"
+#include "interfazpartida.h"
+#include "seleccioncolor.h"
+
 
 typedef struct{
     char nombre[20];
@@ -19,10 +28,10 @@ int buscarNumero(int numero, int vector[], int n){
 }
 
 void printtorneo(){
-    int torneo = 0, i = 0, j = 0, jugartorneo = 0, jugar;
+    int torneo = 0, i = 0, j = 0, jugartorneo = 0, jugar, color, x;
     int min = 1, aux = 0, fstop;
     int num_aletorio, numeros[20] = {0};
-    char s1[20], s2[20], s3[20], s4[20], s5[20], s6[20], s7[20], s8[20];
+    char s1[20], s2[20], s3[20], s4[20], s5[20], s6[20], s7[20], s8[20], color1[20], color2[20];
 
             menuTorneo:
                 do{
@@ -225,7 +234,9 @@ void printtorneo(){
 
 
                         do{
-                        printf("\n\nRecuerda los emparejamientos del torneo para los proximos partidos.\n\tDesea continuar con el primer partido: %s VS %s.\n\t\t1. Si\n\t\t2. Salir\n", s1, s2);
+                        creafichero1(s1);
+                        creafichero2(s2);
+                        printf("\n\nRecuerda los emparejamientos del torneo para los proximos partidos.\n\tDesea continuar con la eleccion de fichas del: %s VS %s.\n\t\t1. Si\n\t\t2. Salir\n", s1, s2);
                         scanf("%d", &jugar);
                         }
 
@@ -233,13 +244,121 @@ void printtorneo(){
 
                             switch (jugar){
                                 case 1:
-                                    printf("\nConstruccion");
+                                    do{
+                                    printf("\nIntroduzca el color deseado por %s:\n", s1);
+                                    fflush(stdin);
+                                    printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
+                                    scanf("%d", &color);
+                                    }
+
+                                    while(color != 1 && color != 2 && color != 3);
+
+
+                                    if(color == 1){
+                                    printf("\nEl Jugador %s sera el Color Negro.\n", s1);
+                                    strcpy(color1, "Negras");
+                                    cambio (color1, 20);
+
+                                    creacolor1(color1);
+                                    seleccion1();
+
+                                    printf("El Jugador %s sera el Color Blanco.\n", s2);
+                                    strcpy(color2, "Blancas");
+                                    cambio (color2, 20);
+
+                                    creacolor2(color2);
+
+                                    }
+
+                                    else if (color == 2){
+                                    printf("\nEl jugador %s sera el Color Blanco.\n", s1);
+                                    strcpy(color1, "Blancas");
+                                    cambio (color1, 20);
+
+
+                                    creacolor1(color1);
+                                    seleccion2();
+
+
+                                    printf("El Jugador %s sera el Color Negro.\n", s2);
+                                    strcpy(color2, "Negras");
+                                    cambio (color2, 20);
+
+                                    creacolor2(color2);
+
+                                    }
+
+                                    else {
+                                    srand(time(NULL));
+                                    x = rand() % (2-1+1) + 1;
+
+                                        if (x == 1){
+                                            printf("\nEl Jugador %s sera el Color Negro.\n", s1);
+                                            strcpy(color1, "Negras");
+                                            cambio (color1, 20);
+                                            creacolor1(color1);
+                                            seleccion1();
+
+                                            printf("El Jugador %s sera el Color Blanco.\n", s2);
+                                            strcpy(color2, "Blancas");
+                                            cambio (color2, 20);
+                                            creacolor2(color2);
+
+                                            }
+
+
+                                        if (x == 2) {
+                                            printf("\nEl jugador %s sera el Color Blanco.\n", s1);
+                                            strcpy(color1, "Blancas");
+                                            cambio (color1, 20);
+                                            creacolor1(color1);
+                                            seleccion2();
+
+                                            printf("El Jugador %s sera el Color Negro.\n", s2);
+                                            strcpy(color2, "Negras");
+                                            cambio (color2, 20);
+                                            creacolor2(color2);
+
+                                            }
+
+
+                                        }
+
+                                    printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
+                                    printf("\t(Pulse una tecla para empezar)");
+                                    getch();
+                                    system("cls");
+                                    mainchess();
                                     getch();
                                 break;
 
                                 case 2:
                                     system("cls");
                                     goto menuTorneo;
+                                    free(s1);
+                                    free(s2);
+                                    free(s3);
+                                    free(s4);
+                                    free(s5);
+                                    free(s6);
+                                    free(s7);
+                                    free(s8);
+                                    free(torneo);
+                                    free(color1);
+                                    free(color2);
+                                    free(i);
+                                    free(j);
+                                    free(jugartorneo);
+                                    free(jugar);
+                                    free(color);
+                                    free(x);
+                                    free(aux);
+                                    free(num_aletorio);
+                                    free(min);
+                                    free(fstop);
+                                    free(numeros[20]);
+                                    free(players);
+
                                 break;
                             }
 

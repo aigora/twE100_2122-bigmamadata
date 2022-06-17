@@ -8,7 +8,10 @@
 #include "torneo.h"
 #include "cargapartida.h"
 #include "nuevapartida.h"
-
+#include "interfazjugadores.h"
+#include "interfazjugadoresmenu.h"
+#include "interfazpartida.h"
+#include "seleccioncolor.h"
 
 
 int main(){

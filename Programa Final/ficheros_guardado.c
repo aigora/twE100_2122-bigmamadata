@@ -1,5 +1,3 @@
-void guardar();
-
 void guardar()
 {
 
@@ -10,39 +8,33 @@ void guardar()
 
   struct COORDENADAS pos;
 
-  char sn;
 
 
 
 
+  guardado = fopen("partidaguardada.txt", "w");
 
-if( sn=='s')
- {
 
-      guardado = fopen("partidaguardada.txt", "w");
-      if (guardado == NULL)
+  if (guardado == NULL)
       {
       printf("Error al abrir el fichero.\n");
       return -1;
       }
-      else
+  else
       {
 
-    for(pos.fila=0;pos.fila<8;++pos.fila)
-    {
-        for(pos.col=0;pos.col<8;++pos.col)
 
+    fprintf(guardado,"   0 1 2 3 4 5 6 7\n");
+       for (pos.fila=0;pos.fila<8;++pos.fila)
+         {
+            fprintf(guardado,"%d |",pos.fila);
+            for(pos.col=0;pos.col<8;++pos.col)
+            fprintf(guardado,"%-2c",tablero[pos.fila][pos.col]);
+            fprintf(guardado,"\n");
+         }
+       fclose(guardado);
+        }
 
-            fprintf(tablero[pos.fila][pos.col],guardado);
-
-
-    }
-
-      }
-
-      fclose(guardado);
-
- }
 
 return 0;
 }

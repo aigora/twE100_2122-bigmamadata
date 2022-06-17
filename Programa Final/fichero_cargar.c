@@ -1,44 +1,39 @@
 void cargar()
 {
-    FILE *guardado;
+
 
   char tablero[8][8];
 
   struct COORDENADAS pos;
 
-  char sn;
+  
 
-  int
 
-  printf("cargar partida?('s' o 'n'");
 
-  if (sn == 's');
-  {
-      FILE *guardado = fopen("guardado.txt", "r");
 
-      if (guardado== NULL)
+
+      FILE *carga = fopen("guardado.txt", "r");
+
+      if (carga== NULL)
       {
-          fclose(guardado);
+          fclose(carga);
           printf("error al abrir el fichero");
       }
       else
         {
            for(pos.fila=0;pos.fila<8;++pos.fila)
-    {
-        for(pos.col=0;pos.col<8;++pos.col)
+         {
+          for(pos.col=0;pos.col<8;++pos.col)
 
 
-            fscanf(guardado, "%c", &tablero[][]);
+            fscanf(carga, "%c", &tablero[8][8]);
 
 
-    }
-
-      }
-
-      fclose(guardado);
+         }
 
         }
-  }
 
+      fclose(carga);
 
+}
 

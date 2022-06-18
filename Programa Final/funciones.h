@@ -30,7 +30,7 @@ void borradoobtencionmenu();
 int buscarNumero(int numero, int vector[], int n);
 void printtorneo();
 int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New);
-int mov_valido(struct COORDENADAS,struct COORDENADAS); 
+int mov_valido(struct COORDENADAS,struct COORDENADAS);
 int rn_enjake2(struct COORDENADAS);
 int rb_enjake2(struct COORDENADAS);
 int rn_enjake();
@@ -49,4 +49,3 @@ void tabla();
 void guardar();
 void cargar();
 void mainchess();
-

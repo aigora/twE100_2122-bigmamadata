@@ -37,7 +37,10 @@ void printcargarpartida(){
 
         switch (guardada){
             case 1:
-                //Poner archivo Fichero!!!!!!!!!!!!!!!!!!!
+                system("cls");
+                cargar();
+                mainchess();
+
 
             break;
 
@@ -141,7 +144,7 @@ void printinstruc(){
 
 
                         case 3:
-                            printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tama帽o para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
+                            printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tama駉 para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
                             printf("\t(Pulse una tecla para volver)");
                             getch();
                             system("cls");
@@ -191,7 +194,7 @@ void printinstruc(){
                         break; //case 3, ayuda.
 
                         case 5:
-                            printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una peque帽a ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
+                            printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una peque馻 ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
                             printf("\t(Pulse una tecla para volver)");
                             getch();
                             system("cls");
@@ -574,14 +577,13 @@ void menupausa(){
 
         switch(pausa){
             case 1:
-                mainchess2();
-                mainchess1();
+                mainchess();
 
             break;
 
 
             case 2:
-                //Situar Funci贸n de Guardado de la partida creado por Alex.
+                guardar();
                 system("cls");
                 menuPrincipal();
             break;
@@ -589,6 +591,7 @@ void menupausa(){
 
             case 3:
                 system("cls");
+                salidamenuprincipal();
                 menuPrincipal();
             break;
 
@@ -628,12 +631,12 @@ void menuPrincipal(){
              case 2:
                 printcargarpartida();
 
-             break; //case 2, selecci贸n.
+             break; //case 2, selecci髇.
 
 
 
              case 3:
-                    printtorneo(); //Funci贸n de Torneo.
+                    printtorneo(); //Funci髇 de Torneo.
 
                 case 6:
                     system("cls");
@@ -641,12 +644,12 @@ void menuPrincipal(){
 
                 break;
 
-             break; //case 3, selecci贸n.
+             break; //case 3, selecci髇.
 
 
 
              case 4:
-                 printinstruc(); //Funci贸n de Instrucciones.
+                 printinstruc(); //Funci髇 de Instrucciones.
 
              break; //case 4, modalidad.
 
@@ -682,7 +685,7 @@ void printnuevapartida(){
     jugador player1;
     jugador player2;
 
-    int modalidad, color, x = 0, indicacion = 0, aux = 0;
+    int modalidad, color, x = 0, indicacion = 0, aux = 0, aux2 = 0;
     char color1[20] = {}, color2[20] = {};
 
     menuNuevaPartida:
@@ -790,12 +793,18 @@ void printnuevapartida(){
 
                                 }
 
-                            printf("\n\n驴PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
+                            printf("\n\n縋REPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
                             printf("\t(Pulse una tecla para empezar)");
                             getch();
                             system("cls");
-                            mainchess1();
-                            mainchess2();
+
+                            aux2 = obtencionsalidamenu();
+
+                            if(aux2 == 1){
+                                cargarnuevo();
+                            }
+
+                            mainchess();
 
                             aux = victoria();
 
@@ -1102,6 +1111,46 @@ void borradoobtencionmenu(){
 }
 
 
+void salidamenuprincipal(){
+
+    FILE *SalidaMenu;
+
+    SalidaMenu = fopen("SalidaMenuPrincipal.txt", "w");
+
+    int salidaMenu = 1;
+
+    if (SalidaMenu == NULL) {
+        printf("No se ha podido abrir.\n");
+        exit(1);
+    }
+    fprintf(SalidaMenu, "%d", salidaMenu);
+
+    fclose (SalidaMenu);
+}
+
+
+
+int obtencionsalidamenu(){
+        FILE *ObtencionMenuPrincipal;
+
+        ObtencionMenuPrincipal = fopen("SalidaMenuPrincipal.txt", "r");
+
+        int n = 0;
+
+        if (ObtencionMenuPrincipal == NULL) {
+        perror("No se ha podido abrir.\n");
+        return 0;
+        }
+        while(!feof(ObtencionMenuPrincipal)){
+            fscanf(ObtencionMenuPrincipal, "%d", &n);
+        }
+
+        fclose(ObtencionMenuPrincipal);
+
+        return n;
+}
+
+
 
 int buscarNumero(int numero, int vector[], int n){
     int i, stop = 0;
@@ -1145,16 +1194,16 @@ void printtorneo(){
 
                         for (i = 0; i < torneo; i++){
                         printf("Introduzca el Nombre del Jugador %d:\t", i + 1);
-                        scanf("%s", players[i].nombre); //Asignaci贸n de nombres a jugadores.
+                        scanf("%s", players[i].nombre); //Asignaci髇 de nombres a jugadores.
                         aux = aux + 1;
-                        players[i].num = aux; //Asignaci贸n a cada jugador de un n煤mero desde el 1 al 4-8.
+                        players[i].num = aux; //Asignaci髇 a cada jugador de un n鷐ero desde el 1 al 4-8.
                         }
 
                         printf("\n\n");
 
                         srand(time(NULL));
 
-                        for(i = 0; i < torneo; i++){ //Creaci贸n de una serie de los n煤meros anteriores sin repetici贸n.
+                        for(i = 0; i < torneo; i++){ //Creaci髇 de una serie de los n鷐eros anteriores sin repetici髇.
                             do{
                             num_aletorio = min + rand()% (torneo - min + 1);
                             fstop = buscarNumero (num_aletorio, numeros, torneo);
@@ -1167,7 +1216,7 @@ void printtorneo(){
 
                         if (torneo == 4){
 
-                        printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de n煤meros los nombres escogidos anteriormente y que ya ten铆an un previo n煤mero asignado.
+                        printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de n鷐eros los nombres escogidos anteriormente y que ya ten韆n un previo n鷐ero asignado.
 
                         for (i = 0; i < torneo - 3; i++){
                             for (j = 0; j < torneo; j++){
@@ -1221,7 +1270,7 @@ void printtorneo(){
                         }//Cierre if (torneo == 4)
 
 
-                        if (torneo == 8){ //Asignaremos a esa serie de n煤meros los nombres escogidos anteriormente y que ya ten铆an un previo n煤mero asignado.
+                        if (torneo == 8){ //Asignaremos a esa serie de n鷐eros los nombres escogidos anteriormente y que ya ten韆n un previo n鷐ero asignado.
 
                         printf("Los emparejamientos seran los siguientes:\n\tCuartos de Final 1:");
                         for (i = 0; i < torneo - 7; i++){
@@ -1412,12 +1461,11 @@ void printtorneo(){
 
                                         }
 
-                                    printf("\n\n驴PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
+                                    printf("\n\n縋REPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
                                     printf("\t(Pulse una tecla para empezar)");
                                     getch();
                                     system("cls");
-                                    mainchess1();
-                                    mainchess2();
+                                    mainchess();
 
                                     aux = victoria();
 
@@ -1512,11 +1560,13 @@ void mainchess()
 
         if(turno%2==0)
         {
+            interfazjugcol();
 
-            printf("\nMueven blancas:\n");
             scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
+
+
            if(Curr.fila == 10 && Curr.col==0 && New.fila== 10&& New.col== 0){
-                guardar();
+                menupausa();
 
            }
            else
@@ -1543,7 +1593,8 @@ void mainchess()
                 }
             }
             else
-            {   printf("\nle toca a las blancas\n");
+            {   printf("\nMovimiento no valido, intente de nuevo\n");
+                sleep(1);
 
                 ++turno;
             }
@@ -1556,11 +1607,13 @@ void mainchess()
         else
         {
 
-            printf("\nMueven negras: ");
+            interfazjugcol2();
+
             scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
 
+
             if(Curr.fila == 10 && Curr.col==0 && New.fila== 10 && New.col== 0){
-                guardar();
+                menupausa();
 
             }
 
@@ -1583,7 +1636,8 @@ void mainchess()
             }
             else
             {   ++turno;
-                printf("\nle toca a las negras\n");
+                printf("\nMovimiento no valido, intente de nuevo\n");
+                sleep(1);
 
             }
             system("cls");
@@ -1602,15 +1656,61 @@ void mainchess()
 
 void tabla()//esto se bugea
 {   struct COORDENADAS pos;
-    printf("\n");
-    printf("   0 1 2 3 4 5 6 7\n");
-    for(pos.fila=0;pos.fila<8;++pos.fila)
-    {   printf("%d ",pos.fila);
-        for(pos.col=0;pos.col<8;++pos.col)
-            printf("%-2c",tablero[pos.fila][pos.col]);
+
+    int n = 0;
+
+    n = obtencion();
+
+    if(n == 1){
+        int numero = 0;
+
+        ficheroColorUp();
+        interfazparcolUp();
+        fflush(stdin);
         printf("\n");
 
-    }
+        printf("\n");
+        printf("   0 1 2 3 4 5 6 7\n");
+        for(pos.fila=0;pos.fila<8;++pos.fila){
+                printf("%d ",pos.fila);
+                    for(pos.col=0;pos.col<8;++pos.col)
+                    printf("%-2c",tablero[pos.fila][pos.col]);
+                    printf("\n");
+
+        }
+
+        ficheroColorDown();
+        interfazparcolDown();
+        fflush(stdin);
+
+         }
+
+
+         if(n == 2){
+        int numero = 0;
+
+        ficheroColorDown();
+        interfazparcolDown();
+        fflush(stdin);
+        printf("\n");
+
+        printf("\n");
+        printf("   0 1 2 3 4 5 6 7\n");
+        for(pos.fila=0;pos.fila<8;++pos.fila){
+                printf("%d ",pos.fila);
+                    for(pos.col=0;pos.col<8;++pos.col)
+                    printf("%-2c",tablero[pos.fila][pos.col]);
+                    printf("\n");
+
+        }
+
+        ficheroColorUp();
+        interfazparcolUp();
+        fflush(stdin);
+
+        }
+
+
 return tablero[8][8];
 
 
@@ -1622,15 +1722,13 @@ void guardar()
 
   FILE *guardado;
 
-  char tablero[8][8];
-
   struct COORDENADAS pos;
 
 
 
 
 
-  guardado = fopen("guardado.txt", "w");
+  guardado = fopen("Guardado.txt", "w");
 
 
  if (guardado == NULL)
@@ -1640,8 +1738,6 @@ void guardar()
       }
   else
       {
-        printf("as guardado");
-
 
        for (pos.fila=0;pos.fila<8;++pos.fila)
          {
@@ -1654,24 +1750,63 @@ void guardar()
         }
 
 
-return 0;
+return tablero[8][8];
 }
+
 
 void cargar()
 {
 
 
-  char tablero[8][8];
+  struct COORDENADAS pos;
+
+
+
+
+
+
+
+      FILE *carga = fopen("Guardado.txt", "r");
+
+      if (carga== NULL)
+      {
+          fclose(carga);
+          printf("error al abrir el fichero");
+      }
+      else
+        {
+           for(pos.fila=0;pos.fila<8;++pos.fila)
+         {
+          for(pos.col=0;pos.col<8;++pos.col)
+
+
+            fscanf(carga, "%c", &tablero[8][8]);
+
+         }
+
+        }
+
+      fclose(carga);
+
+
+
+return tablero[8][8];
+}
+
+
+void cargarnuevo()
+{
+
 
   struct COORDENADAS pos;
 
-  
 
 
 
 
 
-      FILE *carga = fopen("guardado.txt", "r");
+
+      FILE *carga = fopen("Guardadonuevo.txt", "r");
 
       if (carga== NULL)
       {
@@ -1695,6 +1830,7 @@ void cargar()
       fclose(carga);
 
 }
+
 
 
 int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
@@ -2744,3 +2880,5 @@ void delay(double sec)
     while ((clock() - start) / CLOCKS_PER_SEC < sec)
         ;
 }
+
+

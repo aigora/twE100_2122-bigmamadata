@@ -144,7 +144,7 @@ void printinstruc(){
 
 
                         case 3:
-                            printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tama駉 para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
+                            printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tama帽o para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
                             printf("\t(Pulse una tecla para volver)");
                             getch();
                             system("cls");
@@ -194,7 +194,7 @@ void printinstruc(){
                         break; //case 3, ayuda.
 
                         case 5:
-                            printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una peque馻 ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
+                            printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una peque帽a ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
                             printf("\t(Pulse una tecla para volver)");
                             getch();
                             system("cls");
@@ -631,12 +631,12 @@ void menuPrincipal(){
              case 2:
                 printcargarpartida();
 
-             break; //case 2, selecci髇.
+             break; //case 2, selecci贸n.
 
 
 
              case 3:
-                    printtorneo(); //Funci髇 de Torneo.
+                    printtorneo(); //Funci贸n de Torneo.
 
                 case 6:
                     system("cls");
@@ -644,12 +644,12 @@ void menuPrincipal(){
 
                 break;
 
-             break; //case 3, selecci髇.
+             break; //case 3, selecci贸n.
 
 
 
              case 4:
-                 printinstruc(); //Funci髇 de Instrucciones.
+                 printinstruc(); //Funci贸n de Instrucciones.
 
              break; //case 4, modalidad.
 
@@ -793,7 +793,7 @@ void printnuevapartida(){
 
                                 }
 
-                            printf("\n\n縋REPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
+                            printf("\n\n驴PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
                             printf("\t(Pulse una tecla para empezar)");
                             getch();
                             system("cls");
@@ -1194,16 +1194,16 @@ void printtorneo(){
 
                         for (i = 0; i < torneo; i++){
                         printf("Introduzca el Nombre del Jugador %d:\t", i + 1);
-                        scanf("%s", players[i].nombre); //Asignaci髇 de nombres a jugadores.
+                        scanf("%s", players[i].nombre); //Asignaci贸n de nombres a jugadores.
                         aux = aux + 1;
-                        players[i].num = aux; //Asignaci髇 a cada jugador de un n鷐ero desde el 1 al 4-8.
+                        players[i].num = aux; //Asignaci贸n a cada jugador de un n煤mero desde el 1 al 4-8.
                         }
 
                         printf("\n\n");
 
                         srand(time(NULL));
 
-                        for(i = 0; i < torneo; i++){ //Creaci髇 de una serie de los n鷐eros anteriores sin repetici髇.
+                        for(i = 0; i < torneo; i++){ //Creaci贸n de una serie de los n煤meros anteriores sin repetici贸n.
                             do{
                             num_aletorio = min + rand()% (torneo - min + 1);
                             fstop = buscarNumero (num_aletorio, numeros, torneo);
@@ -1216,7 +1216,7 @@ void printtorneo(){
 
                         if (torneo == 4){
 
-                        printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de n鷐eros los nombres escogidos anteriormente y que ya ten韆n un previo n鷐ero asignado.
+                        printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de n煤meros los nombres escogidos anteriormente y que ya ten铆an un previo n煤mero asignado.
 
                         for (i = 0; i < torneo - 3; i++){
                             for (j = 0; j < torneo; j++){
@@ -1270,7 +1270,7 @@ void printtorneo(){
                         }//Cierre if (torneo == 4)
 
 
-                        if (torneo == 8){ //Asignaremos a esa serie de n鷐eros los nombres escogidos anteriormente y que ya ten韆n un previo n鷐ero asignado.
+                        if (torneo == 8){ //Asignaremos a esa serie de n煤meros los nombres escogidos anteriormente y que ya ten铆an un previo n煤mero asignado.
 
                         printf("Los emparejamientos seran los siguientes:\n\tCuartos de Final 1:");
                         for (i = 0; i < torneo - 7; i++){
@@ -1461,7 +1461,7 @@ void printtorneo(){
 
                                         }
 
-                                    printf("\n\n縋REPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
+                                    printf("\n\n驴PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
                                     printf("\t(Pulse una tecla para empezar)");
                                     getch();
                                     system("cls");
@@ -1761,11 +1761,6 @@ void cargar()
   struct COORDENADAS pos;
 
 
-
-
-
-
-
       FILE *carga = fopen("Guardado.txt", "r");
 
       if (carga== NULL)
@@ -1775,23 +1770,19 @@ void cargar()
       }
       else
         {
-           for(pos.fila=0;pos.fila<8;++pos.fila)
+          for (pos.fila=0;pos.fila<8;++pos.fila)
          {
-          for(pos.col=0;pos.col<8;++pos.col)
 
-
-            fscanf(carga, "%c", &tablero[8][8]);
-
+            for(pos.col=0;pos.col<8;++pos.col)
+            fscanf(carga,"%c",tablero[pos.fila][pos.col]);
+            fprintf(carga,"\n");
          }
-
         }
-
-      fclose(carga);
-
-
-
+        fclose(carga);
+        
 return tablero[8][8];
 }
+
 
 
 void cargarnuevo()

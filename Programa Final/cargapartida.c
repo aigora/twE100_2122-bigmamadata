@@ -30,5 +30,12 @@ void printcargarpartida(){
                 //Poner archivo Fichero!!!!!!!!!!!!!!!!!!!
 
             break;
+
+
+            case 2:
+                system("cls");
+                menuPrincipal();
+
+            break;
         }
 }

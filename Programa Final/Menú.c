@@ -12,14 +12,16 @@
 #include "interfazjugadoresmenu.h"
 #include "interfazpartida.h"
 #include "seleccioncolor.h"
+#include "menupausa.h"
+#include "portadachess.h"
 
-
-int main(){
+void menuPrincipal(){
     int seleccion;
 
     menuPrincipal:
+    portadachess();
     do{
-    printf("Bienvenido al AJEDREZ!\nElija una de las opciones siguientes:\n\n");
+    printf("\nBienvenido al AJEDREZ!\nElija una de las opciones siguientes:\n\n");
     printf("\t1. Nueva Partida\n\t2. Cargar Partida Anterior\n\t3. Modo Torneo\n\t4. Instrucciones de Juego\n\t5. Salir del Juego\n");
     scanf("%i", &seleccion);
     system("cls");
@@ -30,52 +32,42 @@ int main(){
         switch(seleccion){
             case 1:
                 printnuevapartida();
-                    case 9:
-                        system("cls");
-                        goto menuPrincipal;
 
-                    break;
+             break;
 
-             break; //case 1, selección.
 
 
              case 2:
                 printcargarpartida();
 
-                case 7:
-                system("cls");
-                goto menuPrincipal;
-
-                break;
-
-
              break; //case 2, selección.
+
+
 
              case 3:
                     printtorneo(); //Función de Torneo.
 
-                    case 8:
-                        system("cls");
-                        goto menuPrincipal;
-                    break;
+                case 6:
+                    system("cls");
+                    goto menuPrincipal;
+
+                break;
 
              break; //case 3, selección.
+
 
 
              case 4:
                  printinstruc(); //Función de Instrucciones.
 
-                 case 6:
-                    system("cls");
-                    goto menuPrincipal;
-                 break;
-
              break; //case 4, modalidad.
 
 
-             case 5:
 
-             break;
+            case 5:
+                exit(0);
+            break;
+
 
 
         } //cierre switch seleccion.
@@ -83,5 +75,7 @@ int main(){
     return 0;
 
 } //cierre main;
+
+
 
 

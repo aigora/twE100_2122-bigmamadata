@@ -328,9 +328,28 @@ void printtorneo(){
                                     printf("\t(Pulse una tecla para empezar)");
                                     getch();
                                     system("cls");
-                                    mainchess();
+                                    mainchess1();
+                                    mainchess2();
+
+                                    aux = victoria();
+
+                                    if(aux == 1){
+                                      printf("\tEl ganador es:");
+                                      ganador1();
+                                    }
+
+                                    if(aux == 2){
+                                      printf("\tEl ganador es:");
+                                      ganador2();
+                                    }
+
+                                    printf("\n\n\tPulse una tecla para continuar al menu principal");
                                     getch();
+                                    menuPrincipal();
+
                                 break;
+
+
 
                                 case 2:
                                     system("cls");
@@ -363,7 +382,6 @@ void printtorneo(){
                             }
 
                     break; //case 1, jugartorneo.
-
 
             }//Cierre Switch Jugartorneo.
 }

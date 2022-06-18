@@ -205,7 +205,14 @@ void printinstruc(){
                                         goto menuAprendeaJugar;
                                 }//cierre switch acabar.
 
-                        break; //case 5, ayuda.
+                        break; //case 6, ayuda.
 
-                    }
+
+                        case 7:
+                            system("cls");
+                            menuPrincipal();
+
+                        break;
+
+                    } //Cierre switch ayuda
 }

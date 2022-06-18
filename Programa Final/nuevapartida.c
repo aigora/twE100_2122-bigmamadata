@@ -34,7 +34,7 @@ void printnuevapartida(){
     jugador player1;
     jugador player2;
 
-    int modalidad, color, x = 0, indicacion = 0;
+    int modalidad, color, x = 0, indicacion = 0, aux = 0;
     char color1[20] = {}, color2[20] = {};
 
     menuNuevaPartida:
@@ -146,11 +146,37 @@ void printnuevapartida(){
                             printf("\t(Pulse una tecla para empezar)");
                             getch();
                             system("cls");
-                            mainchess();
+                            mainchess1();
+                            mainchess2();
+
+                            aux = victoria();
+
+                            if(aux == 1){
+                              printf("\tEl ganador es:");
+                              ganador1();
+                            }
+
+                            if(aux == 2){
+                              printf("\tEl ganador es:");
+                              ganador2();
+                            }
+
+                            printf("\n\n\tPulse una tecla para continuar al menu principal");
+                            getch();
+                            menuPrincipal();
+
+
                             free(color1);
                             free(color2);
 
                         break; //case 1, modalidad.
+
+
+                        case 2:
+                            system("cls");
+                            menuPrincipal();
+
+                        break;
 
                     } //Cierre Switch Modalidad
 

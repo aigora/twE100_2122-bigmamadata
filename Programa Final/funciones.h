@@ -46,5 +46,6 @@ void b_reyaogado();
 void n_promocion();
 void b_promocion();
 void tabla();
-void guardador();
+void guardar();
+void cargar();
 

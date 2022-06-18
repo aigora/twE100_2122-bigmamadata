@@ -1,0 +1,302 @@
+# depslib dependency file v1.0
+1655345983 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\menú 2.0.0.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+
+1655329859 c:\users\pablo\desktop\ajedrez\menú 2.0.0\instrucciones.h
+
+1655338438 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\instrucciones.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655345574 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\torneo.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+
+1655337738 c:\users\pablo\desktop\ajedrez\menú 2.0.0\torneo.h
+
+1655335104 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\prueba.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655338336 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\cargapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655336603 c:\users\pablo\desktop\ajedrez\menú 2.0.0\cargapartida.h
+
+1655337580 c:\users\pablo\desktop\ajedrez\menú 2.0.0\nuevapartida.h
+
+1655338491 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\nuevapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655345961 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\cargapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655338491 source:c:\users\pablo\desktop\ajedrez\menú 2.0.0\librerías\nuevapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1655506491 source:c:\users\pablo\desktop\ajedrez\programa final\cargapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655506699 source:c:\users\pablo\desktop\ajedrez\programa final\instrucciones.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655511443 source:c:\users\pablo\desktop\ajedrez\programa final\menú.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+	"menupausa.h"
+	"portadachess.h"
+
+1655329859 c:\users\pablo\desktop\ajedrez\programa final\instrucciones.h
+
+1655337738 c:\users\pablo\desktop\ajedrez\programa final\torneo.h
+
+1655336603 c:\users\pablo\desktop\ajedrez\programa final\cargapartida.h
+
+1655418640 c:\users\pablo\desktop\ajedrez\programa final\nuevapartida.h
+
+1655506348 source:c:\users\pablo\desktop\ajedrez\programa final\nuevapartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655507177 source:c:\users\pablo\desktop\ajedrez\programa final\torneo.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655572780 source:c:\users\pablo\desktop\ajedrez\programa final\funciones.c
+	<stdio.h>
+	<ctype.h>
+	<dos.h>
+	<time.h>
+	<stdlib.h>
+	<string.h>
+
+1655368848 c:\users\pablo\desktop\ajedrez\programa final\defs.h
+	<stdio.h>
+	<ctype.h>
+	<dos.h>
+	<time.h>
+	<stdlib.h>
+
+1655507831 source:c:\users\pablo\desktop\ajedrez\programa final\mainchess.c
+	<stdio.h>
+	"defs.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+	<stdlib.h>
+	<conio.h>
+	"menupausa.h"
+	"seleccionmenupausa.h"
+	<string.h>
+
+1655427885 c:\users\pablo\desktop\ajedrez\programa final\prueba.h
+
+1655429014 c:\users\pablo\desktop\ajedrez\programa final\interfazjugadores.h
+
+1655446160 source:c:\users\pablo\desktop\ajedrez\programa final\interfazjugadores.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655446160 source:c:\users\pablo\desktop\ajedrez\programa final\interfazpartida.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655430493 c:\users\pablo\desktop\ajedrez\programa final\interfazpartida.h
+
+1655446160 source:c:\users\pablo\desktop\ajedrez\programa final\interfazjugadoresmenu.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655435943 c:\users\pablo\desktop\ajedrez\programa final\interfazjugadoresmenu.h
+
+1655440797 c:\users\pablo\desktop\ajedrez\programa final\seleccioncolor.h
+
+1655446160 source:c:\users\pablo\desktop\ajedrez\programa final\seleccioncolor.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655485158 source:c:\users\pablo\desktop\ajedrez\programa final\mainmaloalex.c
+
+1655491655 c:\users\pablo\desktop\ajedrez\programa final\menupausa.h
+
+1655506249 source:c:\users\pablo\desktop\ajedrez\programa final\menupausa.c
+	<stdio.h>
+	"defs.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+	<stdlib.h>
+	<conio.h>
+
+1655559173 source:c:\users\pablo\desktop\ajedrez\programa final\principal.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"funciones.h"
+
+1655499778 source:c:\users\pablo\desktop\ajedrez\programa final\seleccionmenupausa.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+
+1655499782 c:\users\pablo\desktop\ajedrez\programa final\seleccionmenupausa.h
+
+1655515358 c:\users\pablo\desktop\ajedrez\programa final\portadachess.h
+
+1655511851 source:c:\users\pablo\desktop\ajedrez\programa final\portadachess.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"instrucciones.h"
+	"torneo.h"
+	"cargapartida.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazjugadoresmenu.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+	"menupausa.h"
+
+1655573323 c:\users\pablo\desktop\ajedrez\programa final\funciones.h
+
+1655501988 c:\users\pablo\desktop\ajedrez\programa final\mainchess.h
+
+1655507831 source:c:\users\pablo\desktop\ajedrez\programa final\mainchess2.c
+	<stdio.h>
+	"defs.h"
+	"nuevapartida.h"
+	"interfazjugadores.h"
+	"interfazpartida.h"
+	"seleccioncolor.h"
+	<stdlib.h>
+	<conio.h>
+	"menupausa.h"
+	"seleccionmenupausa.h"
+	<string.h>
+
+1655501988 c:\users\pablo\desktop\ajedrez\programa final\mainchess2.h
+

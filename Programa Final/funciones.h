@@ -48,4 +48,5 @@ void b_promocion();
 void tabla();
 void guardar();
 void cargar();
+void mainchess();
 

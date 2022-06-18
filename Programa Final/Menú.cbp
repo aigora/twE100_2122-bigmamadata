@@ -77,10 +77,12 @@
 			<Option link="0" />
 		</Unit>
 		<Unit filename="interfazpartida.h" />
-		<Unit filename="mainchess.c">
+		<Unit filename="mainchess2.c">
 			<Option compilerVar="CC" />
+			<Option compile="0" />
+			<Option link="0" />
 		</Unit>
-		<Unit filename="mainchess.h" />
+		<Unit filename="mainchess2.h" />
 		<Unit filename="menu.h" />
 		<Unit filename="menupausa.c">
 			<Option compilerVar="CC" />

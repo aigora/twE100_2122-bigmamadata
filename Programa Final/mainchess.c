@@ -14,18 +14,14 @@
 
 
 
+
 void mainchess()
 {
     int turno=0;
-    
-  char tablero[8][8]={     't','c','a','m','r','a','c','t',
-                        'p','p','p','p','p','p','p','p',
-                        '\0','\0','\0','\0','\0','\0','\0','\0',
-                        '\0','\0','\0','\0','\0','\0','\0','\0',
-                        '\0','\0','\0','\0','\0','\0','\0','\0',
-                        '\0','\0','\0','\0','\0','\0','\0','\0',
-                        'P','P','P','P','P','P','P','P',
-                        'T','C','A','M','R','A','C','T'      };
+
+
+
+
 
 
 
@@ -33,7 +29,7 @@ void mainchess()
 
     tabla();
 
-    FILE* guardado;
+
 
 
 
@@ -45,8 +41,15 @@ void mainchess()
 
         if(turno%2==0)
         {
-            printf("\nMueven blancas: ");
+
+            printf("\nMueven blancas:\n");
             scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
+           if(Curr.fila == 10 && Curr.col==0 && New.fila== 10&& New.col== 0){
+                guardar();
+
+           }
+           else
+            {
 
 
 
@@ -55,7 +58,7 @@ void mainchess()
                 if(mov_valido(Curr,New))
                 {
                     tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
-                    tablero[Curr.fila][Curr.col]='\0';
+                    tablero[Curr.fila][Curr.col]=' ';
                     b_promocion();
                     n_jakemate();
                     n_reyaogado();
@@ -78,15 +81,23 @@ void mainchess()
             ++turno;
 
         }
+        }
         else
         {
+
             printf("\nMueven negras: ");
             scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
 
-            if(islower(tablero[Curr.fila][Curr.col])>0)
-            {   if(mov_valido(Curr,New))
+            if(Curr.fila == 10 && Curr.col==0 && New.fila== 10 && New.col== 0){
+                guardar();
+
+            }
+
+            else{
+               if(islower(tablero[Curr.fila][Curr.col])>0)
+               {   if(mov_valido(Curr,New))
                 {   tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
-                    tablero[Curr.fila][Curr.col]='\0';
+                    tablero[Curr.fila][Curr.col]=' ';
                      n_promocion();
                     b_jakemate();
                     b_reyaogado();
@@ -110,7 +121,10 @@ void mainchess()
 
         }
 
+
     }
+    }
+
 
   return 0;
 }

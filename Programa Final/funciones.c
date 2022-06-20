@@ -17,9 +17,6 @@ typedef struct{
     int num;
 } jugador;
 
-jugador player1;
-jugador player2;
-
 
 
 void printcargarpartida(){
@@ -55,208 +52,237 @@ void printcargarpartida(){
 
 
 void printinstruc(){
-    int ayuda, piezas, escape, reglas, acabar;
-
-        menuAprendeaJugar:
-                printf("\nEn esta seccion encontraras distintas ayudas para comprender mejor el Juego del Ajedrez.\n\n");
-                do{
-                printf("\t1. Configuracion del Tablero de Ajedrez\n\t2. Movimientos de las Piezas\n\t3. Como Jugar\n\t4. Reglas Especiales\n\t5. Quien Empieza a Jugar\n\t6. Ganar una Partida\n\t7. Salir\n");
-                scanf("%d", &ayuda);
-                }
-                while (ayuda !=  1 && ayuda != 2 && ayuda != 3 && ayuda != 4 && ayuda != 5 && ayuda != 6 && ayuda != 7);
-
-                    switch (ayuda){
-                        case 1:
-                            printf("\nLa posicion inicial de las piezas es siempre la misma. La segunda fila se encuentra ocupada por 8 peones.\nLas torres ocupan las esquinas, y los dos caballos se situan a sus lados, seguidos por los alfiles.\nAl lado de estos, la reina (o dama) ocupa siempre la casilla de su propio color (la dama blanca en una casilla blanca;\nla negra, en una casilla negra). Por ultimo, el rey se situa al lado de la reina, en la casilla restante.\n");
-                            printf("\t(Pulse una tecla para volver)");
-                            getch();
-                            system("cls");
-                            goto menuAprendeaJugar;
-                        break;
-
-                        case 2:
-                            menuMovimientoPiezas:
-                            printf("\nHay 6 tipos de piezas y cada uno tiene su propia forma de moverse. Una pieza no puede moverse atravesando a otra\n(aunque el caballo si puede saltar sobre las demas) y nunca puede desplazarse a una casilla ocupada por otra pieza\nde su color. Sin embargo, las piezas pueden moverse a las casillas ocupadas por las piezas del adversario para\ncapturarlas. De hecho, las piezas se mueven por el tablero para ocupar una casilla con uno de estos tres objetivos:\n\n");
-                            printf("\t- Capturar una pieza rival (reemplazandola al ocupar la casilla en la que esta se encontraba).\n\t- Defender a las piezas de su propio bando para evitar que sean capturadas.\n\t- Controlar las casillas importantes del tablero");
-                            do{
-                            printf("\n\nMovimiento de cada una de las piezas del tablero:\n\t1. Rey\n\t2. Reina o Dama\n\t3. Torre\n\t4. Alfil\n\t5. Caballo\n\t6. Peon\n\t7. Salir\n");
-                            scanf("%d", &piezas);
-                            }
-                            while (piezas !=  1 && piezas != 2 && piezas != 3 && piezas != 4 && piezas != 5 && piezas != 6 && piezas != 7);
-
-                                switch (piezas){
-                                    case 1:
-                                        printf("\n\nEl rey es la pieza mas importante, pero tambien una de las mas debiles. El rey solo puede avanzar una casilla\nen cualquier direccion: hacia arriba, hacia abajo, hacia los lados o en diagonal. En ningun caso el rey puede moverse\na una casilla en la que estaria en jaque, es decir, en la que pudiera ser capturado.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuMovimientoPiezas;
-                                    break;
-
-                                    case 2:
-                                        printf("\n\nLa dama (reina) es la pieza mas poderosa. Puede moverse en cualquier direccion (hacia adelante, hacia atras, hacia los\nlados o en diagonal) y tantas casillas como se quiera; siempre y cuando no pase por encima de una pieza de su color.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuMovimientoPiezas;
-                                    break;
-
-                                    case 3:
-                                        printf("\n\nLa torre puede moverse tantas casillas como quiera, pero solo hacia adelante, hacia atras o hacia los lados. Cuando\ntrabajan juntas son muy poderosas.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuMovimientoPiezas;
-                                    break;
-
-                                    case 4:
-                                        printf("\n\nEl alfil puede moverse tan lejos como quiera, pero siempre en diagonal. Cada alfil comienza en una casilla de un color\n(claro u oscuro) y debe permanecer toda la partida en ese color. Los dos alfiles trabajan bien juntos ya que uno cubre\nlas debilidades y viceversa.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuMovimientoPiezas;
-                                    break;
-
-                                    case 5:
-                                        printf("\n\nLos caballos se mueven de una manera muy diferente a la de las otras piezas: avanzan dos casillas en una direccion y,\nluego, una mas en un angulo de 90 grados, dibujando en su desplazamiento una letra 'L' sobre el tablero. Los caballos\ntambien son las unicas piezas que pueden saltar sobre otras.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuMovimientoPiezas;
-                                    break;
-
-                                    case 6:
-                                        printf("\n\nLos peones tienen la particularidad de que se mueven y capturan de diferentes maneras: se mueven hacia adelante, pero\ncapturan en diagonal. Los peones solo pueden avanzar una casilla en cada jugada, a excepcion de su primer movimiento\nen el que puedan avanzar dos casillas. Los peones solo pueden capturar una casilla situada en diagonal y frente a\nellos. Nunca pueden retroceder, ni siquiera para capturar una pieza. Los peones no pueden moverse si en su camino\nencuentran una pieza que ocupe la casilla situada directamente frente a ellos y tampoco pueden capturarla.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuMovimientoPiezas;
-                                    break;
-
-                                    case 7:
-                                        system("cls");
-                                        goto menuAprendeaJugar;
-                                    break;
-
-                                } //cierre switch piezas.
-
-                        break; //case 2, ayuda.
+    int ayuda;
 
 
-                        case 3:
-                            printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tamaño para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
-                            printf("\t(Pulse una tecla para volver)");
-                            getch();
-                            system("cls");
-                            goto menuAprendeaJugar;
-                            break;
+        printf("\nEn esta seccion encontraras distintas ayudas para comprender mejor el Juego del Ajedrez.\n\n");
+        do{
+        printf("\t1. Configuracion del Tablero de Ajedrez\n\t2. Movimientos de las Piezas\n\t3. Como Jugar\n\t4. Reglas Especiales\n\t5. Quien Empieza a Jugar\n\t6. Ganar una Partida\n\t7. Salir\n");
+        scanf("%d", &ayuda);
+        }
+        while (ayuda !=  1 && ayuda != 2 && ayuda != 3 && ayuda != 4 && ayuda != 5 && ayuda != 6 && ayuda != 7);
+
+            switch (ayuda){
+                case 1:
+                    printf("\nLa posicion inicial de las piezas es siempre la misma. La segunda fila se encuentra ocupada por 8 peones.\nLas torres ocupan las esquinas, y los dos caballos se situan a sus lados, seguidos por los alfiles.\nAl lado de estos, la reina (o dama) ocupa siempre la casilla de su propio color (la dama blanca en una casilla blanca;\nla negra, en una casilla negra). Por ultimo, el rey se situa al lado de la reina, en la casilla restante.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    printinstruc();
+                break;
+
+                case 2:
+                    MovimientoPiezas();
+
+                break;
 
 
-                        case 4:
-                            menuReglasEspeciales:
-                            printf("\n\nHay unas reglas especiales de ajedrez que fueron creadas para hacer el juego mas divertido e interesante:\n");
-                            do{
-                            printf("\t1. Coronar un Peon\n\t2. Capturar al Paso (en passant)\n\t3. Enroque\n\t4. Salir\n");
-                            scanf("%d", &reglas);
-                            }
-                            while (reglas !=  1 && reglas != 2 && reglas != 3 && reglas != 4);
-                                switch (reglas){
-                                    case 1:
-                                        printf("\n\nLos peones tienen otra habilidad especial: si llegan al otro extremo del tablero pueden convertirse en cualquier\notra pieza excepto en un rey. A esta jugada se le llama coronacion.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuReglasEspeciales;
-                                    break;
-
-                                    case 2:
-                                        printf("\n\nLa ultima regla sobre los peones se llama captura en passant. Si un peon avanza dos casillas en su primer movimiento,\ny al hacerlo se situa al lado de un peon rival, este peon enemigo tiene la opcion de capturar al primero ocupando la\ncasilla que aquel hubiera ocupado si solo hubiera avanzado una casilla. Esta jugada especial debe hacerse\ninmediatamente despues del movimiento del primer peon, de lo contrario la opcion de capturar ya no estara disponible.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuReglasEspeciales;
-                                    break;
-
-                                    case 3:
-                                        printf("\n\nHay otra regla especial denominada enroque. Esta jugada te permite hacer dos cosas importantes en un solo movimiento:\nsituar al rey en una posicion mas segura y sacar a la torre de su esquina para ponerla en juego. En un solo turno\nel jugador puede mover al rey dos casillas hacia un lado y, al mismo tiempo, la torre situada en la esquina de ese\nlado, se coloca junto al rey en la casilla ubicada en el lado opuesto. Sin embargo, para poder hacer un enroque se\ndeben cumplir las siguientes condiciones:\n\t- Debe ser la primera jugada de aquel rey.\n\t- Debe ser la primera jugada de aquella torre.\n\t- No puede haber ninguna pieza entre el rey y la torre.\n\t- El rey no puede estar en jaque ni pasar por una casilla amenazada.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuReglasEspeciales;
-                                    break;
-
-                                    case 4:
-                                        system("cls");
-                                        goto menuAprendeaJugar;
-                                    break;
-                                }//cierre switch reglas.
-
-                        break; //case 3, ayuda.
-
-                        case 5:
-                            printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una pequeña ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
-                            printf("\t(Pulse una tecla para volver)");
-                            getch();
-                            system("cls");
-                            goto menuAprendeaJugar;
-                        break;
-
-                        case 6:
-                            menuComoGanar:
-                            printf("\n\nHay varias formas de terminar una partida de ajedrez:\n");
-                            do{
-                            printf("\t1. Jaque Mate\n\t2. En Tablas o Empate\n\t3. Rendirse\n\t4. Perder por tiempo\n\t5. Salir\n");
-                            scanf("%d", &acabar);
-                            }
-                            while (acabar != 1 && acabar != 2 && acabar != 3 && acabar != 4 && acabar != 5);
-                                switch (acabar){
-                                    case 1:
-                                        printf("\n\nEl objetivo del juego es dar jaque mate al rey del adversario. Esto ocurre cuando el rey esta en jaque y no puede salir\nde esa situacion. Solo hay tres formas por las que un rey puede escapar de un jaque:\n\t- Moverse a una casilla segura.\n\t- Bloquear el jaque interponiendo otra pieza de su propio bando.\n\t- Capturar la pieza que amenaza al rey.\n\nSi un rey no puede escapar del jaque, la partida ha terminado.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuComoGanar;
-                                    break;
-
-                                    case 2:
-                                        printf("\n\nA veces, las partidas de ajedrez terminan sin un ganador, pero en empate (denominado tablas). Hay 5 razones por las que\nuna partida puede terminar en tablas:\n\t- La posicion llega a un punto muerto en el que es el turno de un jugador, pero su rey no esta en jaque y,\n\tsin embargo, no puede hacer ningun movimiento reglamentario. Esto se conoce como 'ahogado'.\n\t- Los jugadores pueden acordar Tablas y dejar de jugar.\n\t- No hay suficientes piezas en el tablero para forzar un jaque mate (ejemplo: un Rey y un Alfil contra otro Rey)\n\t- Un jugador declara Tablas si la misma posicion se repite tres veces (no necesariamente tres veces seguidas).\n\t- Se han efectuado 50 movimientos y ninguno de los jugadores ha movido un peon ni capturado una pieza.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuComoGanar;
-                                    break;
-
-                                    case 3:
-                                        printf("\n\nUno de los dos jugadores decide rendirse y, por lo tanto, se declara un vencedor.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuComoGanar;
-                                    break;
-
-                                    case 4:
-                                        printf("\n\nSi el tiempo se acaba para alguno de los dos jugadores, inmediatamente el contrario es el vencedor de la partida.\n");
-                                        printf("\t(Pulse una tecla para volver)");
-                                        getch();
-                                        system("cls");
-                                        goto menuComoGanar;
-                                    break;
-
-                                    case 5:
-                                        system("cls");
-                                        goto menuAprendeaJugar;
-                                }//cierre switch acabar.
-
-                        break; //case 6, ayuda.
+                case 3:
+                    printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tamaño para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    printinstruc();
+                    break;
 
 
-                        case 7:
-                            system("cls");
-                            menuPrincipal();
+                case 4:
+                    Reglasespeciales();
 
-                        break;
+                break;
 
-                    } //Cierre switch ayuda
+
+                case 5:
+                    printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una pequeña ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    printinstruc();
+                break;
+
+
+                case 6:
+                    Comoganar();
+
+                break; //case 6, ayuda.
+
+
+                case 7:
+                    system("cls");
+                    menuPrincipal();
+
+                break;
+
+            } //Cierre switch ayuda
+}
+
+
+
+void MovimientoPiezas(){
+    int piezas;
+
+    printf("\nHay 6 tipos de piezas y cada uno tiene su propia forma de moverse. Una pieza no puede moverse atravesando a otra\n(aunque el caballo si puede saltar sobre las demas) y nunca puede desplazarse a una casilla ocupada por otra pieza\nde su color. Sin embargo, las piezas pueden moverse a las casillas ocupadas por las piezas del adversario para\ncapturarlas. De hecho, las piezas se mueven por el tablero para ocupar una casilla con uno de estos tres objetivos:\n\n");
+    printf("\t- Capturar una pieza rival (reemplazandola al ocupar la casilla en la que esta se encontraba).\n\t- Defender a las piezas de su propio bando para evitar que sean capturadas.\n\t- Controlar las casillas importantes del tablero");
+
+    do{
+    printf("\n\nMovimiento de cada una de las piezas del tablero:\n\t1. Rey\n\t2. Reina o Dama\n\t3. Torre\n\t4. Alfil\n\t5. Caballo\n\t6. Peon\n\t7. Salir\n");
+    scanf("%d", &piezas);
+    }
+    while (piezas !=  1 && piezas != 2 && piezas != 3 && piezas != 4 && piezas != 5 && piezas != 6 && piezas != 7);
+
+        switch (piezas){
+                case 1:
+                    printf("\n\nEl rey es la pieza mas importante, pero tambien una de las mas debiles. El rey solo puede avanzar una casilla\nen cualquier direccion: hacia arriba, hacia abajo, hacia los lados o en diagonal. En ningun caso el rey puede moverse\na una casilla en la que estaria en jaque, es decir, en la que pudiera ser capturado.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    MovimientoPiezas();
+                break;
+
+                case 2:
+                    printf("\n\nLa dama (reina) es la pieza mas poderosa. Puede moverse en cualquier direccion (hacia adelante, hacia atras, hacia los\nlados o en diagonal) y tantas casillas como se quiera; siempre y cuando no pase por encima de una pieza de su color.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    MovimientoPiezas();
+                break;
+
+                case 3:
+                    printf("\n\nLa torre puede moverse tantas casillas como quiera, pero solo hacia adelante, hacia atras o hacia los lados. Cuando\ntrabajan juntas son muy poderosas.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    MovimientoPiezas();
+                break;
+
+                case 4:
+                    printf("\n\nEl alfil puede moverse tan lejos como quiera, pero siempre en diagonal. Cada alfil comienza en una casilla de un color\n(claro u oscuro) y debe permanecer toda la partida en ese color. Los dos alfiles trabajan bien juntos ya que uno cubre\nlas debilidades y viceversa.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    MovimientoPiezas();
+                break;
+
+                case 5:
+                    printf("\n\nLos caballos se mueven de una manera muy diferente a la de las otras piezas: avanzan dos casillas en una direccion y,\nluego, una mas en un angulo de 90 grados, dibujando en su desplazamiento una letra 'L' sobre el tablero. Los caballos\ntambien son las unicas piezas que pueden saltar sobre otras.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    MovimientoPiezas();
+                break;
+
+                case 6:
+                    printf("\n\nLos peones tienen la particularidad de que se mueven y capturan de diferentes maneras: se mueven hacia adelante, pero\ncapturan en diagonal. Los peones solo pueden avanzar una casilla en cada jugada, a excepcion de su primer movimiento\nen el que puedan avanzar dos casillas. Los peones solo pueden capturar una casilla situada en diagonal y frente a\nellos. Nunca pueden retroceder, ni siquiera para capturar una pieza. Los peones no pueden moverse si en su camino\nencuentran una pieza que ocupe la casilla situada directamente frente a ellos y tampoco pueden capturarla.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    MovimientoPiezas();
+                break;
+
+                case 7:
+                    system("cls");
+                    printinstruc();
+                break;
+
+            } //cierre switch piezas.
+}
+
+
+
+void Reglasespeciales(){
+    int reglas;
+
+    printf("\n\nHay unas reglas especiales de ajedrez que fueron creadas para hacer el juego mas divertido e interesante:\n");
+
+    do{
+    printf("\t1. Coronar un Peon\n\t2. Capturar al Paso (en passant)\n\t3. Enroque\n\t4. Salir\n");
+    scanf("%d", &reglas);
+    }
+    while (reglas !=  1 && reglas != 2 && reglas != 3 && reglas != 4);
+
+        switch (reglas){
+            case 1:
+                printf("\n\nLos peones tienen otra habilidad especial: si llegan al otro extremo del tablero pueden convertirse en cualquier\notra pieza excepto en un rey. A esta jugada se le llama coronacion.\n");
+                printf("\t(Pulse una tecla para volver)");
+                getch();
+                system("cls");
+                Reglasespeciales();
+            break;
+
+            case 2:
+                printf("\n\nLa ultima regla sobre los peones se llama captura en passant. Si un peon avanza dos casillas en su primer movimiento,\ny al hacerlo se situa al lado de un peon rival, este peon enemigo tiene la opcion de capturar al primero ocupando la\ncasilla que aquel hubiera ocupado si solo hubiera avanzado una casilla. Esta jugada especial debe hacerse\ninmediatamente despues del movimiento del primer peon, de lo contrario la opcion de capturar ya no estara disponible.\n");
+                printf("\t(Pulse una tecla para volver)");
+                getch();
+                system("cls");
+                Reglasespeciales();
+            break;
+
+            case 3:
+                printf("\n\nHay otra regla especial denominada enroque. Esta jugada te permite hacer dos cosas importantes en un solo movimiento:\nsituar al rey en una posicion mas segura y sacar a la torre de su esquina para ponerla en juego. En un solo turno\nel jugador puede mover al rey dos casillas hacia un lado y, al mismo tiempo, la torre situada en la esquina de ese\nlado, se coloca junto al rey en la casilla ubicada en el lado opuesto. Sin embargo, para poder hacer un enroque se\ndeben cumplir las siguientes condiciones:\n\t- Debe ser la primera jugada de aquel rey.\n\t- Debe ser la primera jugada de aquella torre.\n\t- No puede haber ninguna pieza entre el rey y la torre.\n\t- El rey no puede estar en jaque ni pasar por una casilla amenazada.\n");
+                printf("\t(Pulse una tecla para volver)");
+                getch();
+                system("cls");
+                Reglasespeciales();
+            break;
+
+            case 4:
+                system("cls");
+                printinstruc();
+            break;
+        }//cierre switch reglas.
+
+}
+
+
+
+void Comoganar(){
+    int acabar;
+
+    printf("\n\nHay varias formas de terminar una partida de ajedrez:\n");
+
+    do{
+    printf("\t1. Jaque Mate\n\t2. En Tablas o Empate\n\t3. Rendirse\n\t4. Perder por tiempo\n\t5. Salir\n");
+    scanf("%d", &acabar);
+    }
+    while (acabar != 1 && acabar != 2 && acabar != 3 && acabar != 4 && acabar != 5);
+
+        switch (acabar){
+                case 1:
+                    printf("\n\nEl objetivo del juego es dar jaque mate al rey del adversario. Esto ocurre cuando el rey esta en jaque y no puede salir\nde esa situacion. Solo hay tres formas por las que un rey puede escapar de un jaque:\n\t- Moverse a una casilla segura.\n\t- Bloquear el jaque interponiendo otra pieza de su propio bando.\n\t- Capturar la pieza que amenaza al rey.\n\nSi un rey no puede escapar del jaque, la partida ha terminado.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    Comoganar();
+                break;
+
+                case 2:
+                    printf("\n\nA veces, las partidas de ajedrez terminan sin un ganador, pero en empate (denominado tablas). Hay 5 razones por las que\nuna partida puede terminar en tablas:\n\t- La posicion llega a un punto muerto en el que es el turno de un jugador, pero su rey no esta en jaque y,\n\tsin embargo, no puede hacer ningun movimiento reglamentario. Esto se conoce como 'ahogado'.\n\t- Los jugadores pueden acordar Tablas y dejar de jugar.\n\t- No hay suficientes piezas en el tablero para forzar un jaque mate (ejemplo: un Rey y un Alfil contra otro Rey)\n\t- Un jugador declara Tablas si la misma posicion se repite tres veces (no necesariamente tres veces seguidas).\n\t- Se han efectuado 50 movimientos y ninguno de los jugadores ha movido un peon ni capturado una pieza.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    Comoganar();
+                break;
+
+                case 3:
+                    printf("\n\nUno de los dos jugadores decide rendirse y, por lo tanto, se declara un vencedor.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    Comoganar();
+                break;
+
+                case 4:
+                    printf("\n\nSi el tiempo se acaba para alguno de los dos jugadores, inmediatamente el contrario es el vencedor de la partida.\n");
+                    printf("\t(Pulse una tecla para volver)");
+                    getch();
+                    system("cls");
+                    Comoganar();
+                break;
+
+                case 5:
+                    system("cls");
+                    printinstruc();
+            }//cierre switch acabar.
 }
 
 
@@ -564,7 +590,6 @@ void interfazparcolDown(){
 void menupausa(){
     int pausa;
 
-    menuPausa:
     do{
     system("cls");
     printf("Menu de Pausa.\tElija una de las opciones siguientes:\n\n");
@@ -609,9 +634,8 @@ void menupausa(){
 void menuPrincipal(){
     int seleccion;
 
-    menuPrincipal:
-    portadachess();
     do{
+    portadachess();
     printf("\nBienvenido al AJEDREZ!\nElija una de las opciones siguientes:\n\n");
     printf("\t1. Nueva Partida\n\t2. Cargar Partida Anterior\n\t3. Modo Torneo\n\t4. Instrucciones de Juego\n\t5. Salir del Juego\n");
     scanf("%i", &seleccion);
@@ -640,7 +664,7 @@ void menuPrincipal(){
 
                 case 6:
                     system("cls");
-                    goto menuPrincipal;
+                    menuPrincipal();
 
                 break;
 
@@ -688,137 +712,136 @@ void printnuevapartida(){
     int modalidad, color, x = 0, indicacion = 0, aux = 0, aux2 = 0;
     char color1[20] = {}, color2[20] = {};
 
-    menuNuevaPartida:
-                do{
-                printf("\nDesea continuar con una nueva partida:\n\n");
-                printf("\t1. Continuar\n\t2. Salir\n");
-                scanf("%i", &modalidad);
-                fflush(stdin);
-                }
-                while (modalidad !=  1 && modalidad != 2);
+        do{
+        printf("\nDesea continuar con una nueva partida:\n\n");
+        printf("\t1. Continuar\n\t2. Salir\n");
+        scanf("%i", &modalidad);
+        fflush(stdin);
+        }
+        while (modalidad !=  1 && modalidad != 2);
 
-                    switch (modalidad){
-                        case 1:
-                            printf("\n\nPor favor, ingrese el nombre del Jugador 1:\t");
-                            fgets(player1.nombre, 20, stdin);
-                            cambio (player1.nombre, 20);
-                            fflush(stdin);
+            switch (modalidad){
+                case 1:
+                    printf("\n\nPor favor, ingrese el nombre del Jugador 1:\t");
+                    fgets(player1.nombre, 20, stdin);
+                    cambio (player1.nombre, 20);
+                    fflush(stdin);
 
-                            creafichero1(player1.nombre);
+                    creafichero1(player1.nombre);
 
-                            printf("Ingrese el nombre del Jugador 2:\t");
-                            fgets (player2.nombre, 20, stdin);
-                            cambio (player2.nombre, 20);
-                            fflush (stdin);
+                    printf("Ingrese el nombre del Jugador 2:\t");
+                    fgets (player2.nombre, 20, stdin);
+                    cambio (player2.nombre, 20);
+                    fflush (stdin);
 
-                            creafichero2(player2.nombre);
+                    creafichero2(player2.nombre);
 
-                            do{
-                            printf("\nIntroduzca el color deseado por %s:\n", player1.nombre);
-                            fflush(stdin);
-                            printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
-                            scanf("%d", &color);
-                            }
+                    do{
+                    printf("\nIntroduzca el color deseado por %s:\n", player1.nombre);
+                    fflush(stdin);
+                    printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
+                    scanf("%d", &color);
+                    }
 
-                            while(color != 1 && color != 2 && color != 3);
+                    while(color != 1 && color != 2 && color != 3);
 
 
-                            if(color == 1){
+                    if(color == 1){
+                    printf("\nEl Jugador %s sera el Color Negro.\n", player1.nombre);
+                    strcpy(color1, "Negras");
+                    cambio (color1, 20);
+
+                    creacolor1(color1);
+                    seleccion1();
+
+                    printf("El Jugador %s sera el Color Blanco.\n", player2.nombre);
+                    strcpy(color2, "Blancas");
+                    cambio (color2, 20);
+
+                    creacolor2(color2);
+
+                    }
+
+                    else if (color == 2){
+                    printf("\nEl jugador %s sera el Color Blanco.\n", player1.nombre);
+                    strcpy(color1, "Blancas");
+                    cambio (color1, 20);
+
+
+                    creacolor1(color1);
+                    seleccion2();
+
+
+                    printf("El Jugador %s sera el Color Negro.\n", player2.nombre);
+                    strcpy(color2, "Negras");
+                    cambio (color2, 20);
+
+                    creacolor2(color2);
+
+                    }
+
+                    else {
+                    srand(time(NULL));
+                    x = rand() % (2-1+1) + 1;
+
+                        if (x == 1){
                             printf("\nEl Jugador %s sera el Color Negro.\n", player1.nombre);
                             strcpy(color1, "Negras");
                             cambio (color1, 20);
-
                             creacolor1(color1);
                             seleccion1();
 
                             printf("El Jugador %s sera el Color Blanco.\n", player2.nombre);
                             strcpy(color2, "Blancas");
                             cambio (color2, 20);
-
                             creacolor2(color2);
 
                             }
 
-                            else if (color == 2){
+
+                        if (x == 2) {
                             printf("\nEl jugador %s sera el Color Blanco.\n", player1.nombre);
                             strcpy(color1, "Blancas");
                             cambio (color1, 20);
-
-
                             creacolor1(color1);
                             seleccion2();
-
 
                             printf("El Jugador %s sera el Color Negro.\n", player2.nombre);
                             strcpy(color2, "Negras");
                             cambio (color2, 20);
-
                             creacolor2(color2);
 
                             }
 
-                            else {
-                            srand(time(NULL));
-                            x = rand() % (2-1+1) + 1;
 
-                                if (x == 1){
-                                    printf("\nEl Jugador %s sera el Color Negro.\n", player1.nombre);
-                                    strcpy(color1, "Negras");
-                                    cambio (color1, 20);
-                                    creacolor1(color1);
-                                    seleccion1();
+                        }
 
-                                    printf("El Jugador %s sera el Color Blanco.\n", player2.nombre);
-                                    strcpy(color2, "Blancas");
-                                    cambio (color2, 20);
-                                    creacolor2(color2);
+                    printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
+                    printf("\t(Pulse una tecla para empezar)");
+                    getch();
+                    system("cls");
 
-                                    }
+                    aux2 = obtencionsalidamenu();
 
+                    if(aux2 == 1){
+                        cargarnuevo();
+                    }
 
-                                if (x == 2) {
-                                    printf("\nEl jugador %s sera el Color Blanco.\n", player1.nombre);
-                                    strcpy(color1, "Blancas");
-                                    cambio (color1, 20);
-                                    creacolor1(color1);
-                                    seleccion2();
+                    mainchess();
 
-                                    printf("El Jugador %s sera el Color Negro.\n", player2.nombre);
-                                    strcpy(color2, "Negras");
-                                    cambio (color2, 20);
-                                    creacolor2(color2);
+                    free(color1);
+                    free(color2);
 
-                                    }
+                break; //case 1, modalidad.
 
 
-                                }
+                case 2:
+                    system("cls");
+                    menuPrincipal();
 
-                            printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
-                            printf("\t(Pulse una tecla para empezar)");
-                            getch();
-                            system("cls");
+                break;
 
-                            aux2 = obtencionsalidamenu();
-
-                            if(aux2 == 1){
-                                cargarnuevo();
-                            }
-
-                            mainchess();
-
-                            free(color1);
-                            free(color2);
-
-                        break; //case 1, modalidad.
-
-
-                        case 2:
-                            system("cls");
-                            menuPrincipal();
-
-                        break;
-
-                    } //Cierre Switch Modalidad
+            } //Cierre Switch Modalidad
 
 
 }
@@ -1229,356 +1252,355 @@ void printtorneo(){
     int num_aletorio, numeros[20] = {0};
     char s1[20], s2[20], s3[20], s4[20], s5[20], s6[20], s7[20], s8[20], color1[20], color2[20];
 
-            menuTorneo:
+        do{
+        printf("\nHa entrado usted en el modo TORNEO, desea continuar:\n\t1. Si\n\t2. Salir\n");
+        scanf("%d", &jugartorneo);
+        }
+
+        while (jugartorneo != 1 && jugartorneo != 2);
+
+        switch (jugartorneo){
+            case 1:
                 do{
-                printf("\nHa entrado usted en el modo TORNEO, desea continuar:\n\t1. Si\n\t2. Salir\n");
-                scanf("%d", &jugartorneo);
+                printf("\n\nBienvenido al MODO TORNEO. Por favor, indique el numero de participantes totales:\t(4 u 8 jugadores)\n");
+                scanf("%d", &torneo);
                 }
 
-                while (jugartorneo != 1 && jugartorneo != 2);
+                while (torneo != 4 && torneo != 8);
 
-                switch (jugartorneo){
-                    case 1:
-                        do{
-                        printf("\n\nBienvenido al MODO TORNEO. Por favor, indique el numero de participantes totales:\t(4 u 8 jugadores)\n");
-                        scanf("%d", &torneo);
+
+                jugador players[torneo];
+                printf("\n");
+
+
+                for (i = 0; i < torneo; i++){
+                printf("Introduzca el Nombre del Jugador %d:\t", i + 1);
+                scanf("%s", players[i].nombre); //Asignación de nombres a jugadores.
+                aux = aux + 1;
+                players[i].num = aux; //Asignación a cada jugador de un número desde el 1 al 4-8.
+                }
+
+                printf("\n\n");
+
+                srand(time(NULL));
+
+                for(i = 0; i < torneo; i++){ //Creación de una serie de los números anteriores sin repetición.
+                    do{
+                    num_aletorio = min + rand()% (torneo - min + 1);
+                    fstop = buscarNumero (num_aletorio, numeros, torneo);
+                    }
+                    while(fstop);
+
+                numeros[i] = num_aletorio;
+                }
+
+
+                if (torneo == 4){
+
+                printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de números los nombres escogidos anteriormente y que ya tenían un previo número asignado.
+
+                for (i = 0; i < torneo - 3; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf(" %s", players[j].nombre);
+                        strcpy(s1, players[j].nombre);
+                        fflush(stdin);
                         }
-
-                        while (torneo != 4 && torneo != 8);
-
-
-                        jugador players[torneo];
-                        printf("\n");
+                    }
+                }
 
 
-                        for (i = 0; i < torneo; i++){
-                        printf("Introduzca el Nombre del Jugador %d:\t", i + 1);
-                        scanf("%s", players[i].nombre); //Asignación de nombres a jugadores.
-                        aux = aux + 1;
-                        players[i].num = aux; //Asignación a cada jugador de un número desde el 1 al 4-8.
+                printf(" VS ");
+
+                for (i = 1; i < torneo - 2; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf("%s", players[j].nombre);
+                        strcpy(s2, players[j].nombre);
+                        fflush(stdin);
                         }
+                    }
+                }
 
-                        printf("\n\n");
 
-                        srand(time(NULL));
+                printf("\n\tSemifinal 2:");
 
-                        for(i = 0; i < torneo; i++){ //Creación de una serie de los números anteriores sin repetición.
+                for (i = 2; i < torneo - 1; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf(" %s", players[j].nombre);
+                        strcpy(s3, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+
+                printf(" VS ");
+
+                for (i = 3; i < torneo; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf("%s", players[j].nombre);
+                        strcpy(s4, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                }//Cierre if (torneo == 4)
+
+
+                if (torneo == 8){ //Asignaremos a esa serie de números los nombres escogidos anteriormente y que ya tenían un previo número asignado.
+
+                printf("Los emparejamientos seran los siguientes:\n\tCuartos de Final 1:");
+                for (i = 0; i < torneo - 7; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf(" %s", players[j].nombre);
+                        strcpy(s1, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                printf(" VS ");
+
+                for (i = 1; i < torneo - 6; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf("%s", players[j].nombre);
+                        strcpy(s2, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                printf("\n\tCuartos de Final 2:");
+
+                for (i = 2; i < torneo - 5; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf(" %s", players[j].nombre);
+                        strcpy(s3, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                printf(" VS ");
+
+                for (i = 3; i < torneo - 4; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf("%s", players[j].nombre);
+                        strcpy(s4, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                printf("\n\tCuartos de Final 3:");
+
+                for (i = 4; i < torneo - 3; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf(" %s", players[j].nombre);
+                        strcpy(s5, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                printf(" VS ");
+
+                for (i = 5; i < torneo - 2; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf("%s", players[j].nombre);
+                        strcpy(s6, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                printf("\n\tCuartos de Final 4:");
+
+                for (i = 6; i < torneo - 1; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf(" %s", players[j].nombre);
+                        strcpy(s7, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                printf(" VS ");
+
+                for (i = 7; i < torneo; i++){
+                    for (j = 0; j < torneo; j++){
+                        if (numeros [i] == players[j].num){
+                        printf("%s", players[j].nombre);
+                        strcpy(s8, players[j].nombre);
+                        fflush(stdin);
+                        }
+                    }
+                }
+
+                } //Cierre if (torneo == 8)
+
+
+                do{
+                creafichero1(s1);
+                creafichero2(s2);
+                printf("\n\nRecuerda los emparejamientos del torneo para los proximos partidos.\n\tDesea continuar con la eleccion de fichas del: %s VS %s.\n\t\t1. Si\n\t\t2. Salir\n", s1, s2);
+                scanf("%d", &jugar);
+                }
+
+                while (jugar != 1 && jugar != 2);
+
+                    switch (jugar){
+                        case 1:
                             do{
-                            num_aletorio = min + rand()% (torneo - min + 1);
-                            fstop = buscarNumero (num_aletorio, numeros, torneo);
+                            printf("\nIntroduzca el color deseado por %s:\n", s1);
+                            fflush(stdin);
+                            printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
+                            scanf("%d", &color);
                             }
-                            while(fstop);
 
-                        numeros[i] = num_aletorio;
-                        }
+                            while(color != 1 && color != 2 && color != 3);
 
 
-                        if (torneo == 4){
+                            if(color == 1){
+                            printf("\nEl Jugador %s sera el Color Negro.\n", s1);
+                            strcpy(color1, "Negras");
+                            cambio (color1, 20);
 
-                        printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de números los nombres escogidos anteriormente y que ya tenían un previo número asignado.
+                            creacolor1(color1);
+                            seleccion1();
 
-                        for (i = 0; i < torneo - 3; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf(" %s", players[j].nombre);
-                                strcpy(s1, players[j].nombre);
-                                fflush(stdin);
-                                }
+                            printf("El Jugador %s sera el Color Blanco.\n", s2);
+                            strcpy(color2, "Blancas");
+                            cambio (color2, 20);
+
+                            creacolor2(color2);
+
                             }
-                        }
+
+                            else if (color == 2){
+                            printf("\nEl jugador %s sera el Color Blanco.\n", s1);
+                            strcpy(color1, "Blancas");
+                            cambio (color1, 20);
 
 
-                        printf(" VS ");
+                            creacolor1(color1);
+                            seleccion2();
 
-                        for (i = 1; i < torneo - 2; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf("%s", players[j].nombre);
-                                strcpy(s2, players[j].nombre);
-                                fflush(stdin);
-                                }
+
+                            printf("El Jugador %s sera el Color Negro.\n", s2);
+                            strcpy(color2, "Negras");
+                            cambio (color2, 20);
+
+                            creacolor2(color2);
+
                             }
-                        }
 
+                            else {
+                            srand(time(NULL));
+                            x = rand() % (2-1+1) + 1;
 
-                        printf("\n\tSemifinal 2:");
-
-                        for (i = 2; i < torneo - 1; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf(" %s", players[j].nombre);
-                                strcpy(s3, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-
-                        printf(" VS ");
-
-                        for (i = 3; i < torneo; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf("%s", players[j].nombre);
-                                strcpy(s4, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        }//Cierre if (torneo == 4)
-
-
-                        if (torneo == 8){ //Asignaremos a esa serie de números los nombres escogidos anteriormente y que ya tenían un previo número asignado.
-
-                        printf("Los emparejamientos seran los siguientes:\n\tCuartos de Final 1:");
-                        for (i = 0; i < torneo - 7; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf(" %s", players[j].nombre);
-                                strcpy(s1, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        printf(" VS ");
-
-                        for (i = 1; i < torneo - 6; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf("%s", players[j].nombre);
-                                strcpy(s2, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        printf("\n\tCuartos de Final 2:");
-
-                        for (i = 2; i < torneo - 5; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf(" %s", players[j].nombre);
-                                strcpy(s3, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        printf(" VS ");
-
-                        for (i = 3; i < torneo - 4; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf("%s", players[j].nombre);
-                                strcpy(s4, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        printf("\n\tCuartos de Final 3:");
-
-                        for (i = 4; i < torneo - 3; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf(" %s", players[j].nombre);
-                                strcpy(s5, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        printf(" VS ");
-
-                        for (i = 5; i < torneo - 2; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf("%s", players[j].nombre);
-                                strcpy(s6, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        printf("\n\tCuartos de Final 4:");
-
-                        for (i = 6; i < torneo - 1; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf(" %s", players[j].nombre);
-                                strcpy(s7, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        printf(" VS ");
-
-                        for (i = 7; i < torneo; i++){
-                            for (j = 0; j < torneo; j++){
-                                if (numeros [i] == players[j].num){
-                                printf("%s", players[j].nombre);
-                                strcpy(s8, players[j].nombre);
-                                fflush(stdin);
-                                }
-                            }
-                        }
-
-                        } //Cierre if (torneo == 8)
-
-
-                        do{
-                        creafichero1(s1);
-                        creafichero2(s2);
-                        printf("\n\nRecuerda los emparejamientos del torneo para los proximos partidos.\n\tDesea continuar con la eleccion de fichas del: %s VS %s.\n\t\t1. Si\n\t\t2. Salir\n", s1, s2);
-                        scanf("%d", &jugar);
-                        }
-
-                        while (jugar != 1 && jugar != 2);
-
-                            switch (jugar){
-                                case 1:
-                                    do{
-                                    printf("\nIntroduzca el color deseado por %s:\n", s1);
-                                    fflush(stdin);
-                                    printf("\t1. Negras\n\t2. Blancas\n\t3. Aleatorio\n");
-                                    scanf("%d", &color);
-                                    }
-
-                                    while(color != 1 && color != 2 && color != 3);
-
-
-                                    if(color == 1){
+                                if (x == 1){
                                     printf("\nEl Jugador %s sera el Color Negro.\n", s1);
                                     strcpy(color1, "Negras");
                                     cambio (color1, 20);
-
                                     creacolor1(color1);
                                     seleccion1();
 
                                     printf("El Jugador %s sera el Color Blanco.\n", s2);
                                     strcpy(color2, "Blancas");
                                     cambio (color2, 20);
-
                                     creacolor2(color2);
 
                                     }
 
-                                    else if (color == 2){
+
+                                if (x == 2) {
                                     printf("\nEl jugador %s sera el Color Blanco.\n", s1);
                                     strcpy(color1, "Blancas");
                                     cambio (color1, 20);
-
-
                                     creacolor1(color1);
                                     seleccion2();
-
 
                                     printf("El Jugador %s sera el Color Negro.\n", s2);
                                     strcpy(color2, "Negras");
                                     cambio (color2, 20);
-
                                     creacolor2(color2);
 
                                     }
 
-                                    else {
-                                    srand(time(NULL));
-                                    x = rand() % (2-1+1) + 1;
 
-                                        if (x == 1){
-                                            printf("\nEl Jugador %s sera el Color Negro.\n", s1);
-                                            strcpy(color1, "Negras");
-                                            cambio (color1, 20);
-                                            creacolor1(color1);
-                                            seleccion1();
+                                }
 
-                                            printf("El Jugador %s sera el Color Blanco.\n", s2);
-                                            strcpy(color2, "Blancas");
-                                            cambio (color2, 20);
-                                            creacolor2(color2);
+                            printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
+                            printf("\t(Pulse una tecla para empezar)");
+                            getch();
+                            system("cls");
+                            mainchess();
 
-                                            }
+                            aux = victoria();
 
-
-                                        if (x == 2) {
-                                            printf("\nEl jugador %s sera el Color Blanco.\n", s1);
-                                            strcpy(color1, "Blancas");
-                                            cambio (color1, 20);
-                                            creacolor1(color1);
-                                            seleccion2();
-
-                                            printf("El Jugador %s sera el Color Negro.\n", s2);
-                                            strcpy(color2, "Negras");
-                                            cambio (color2, 20);
-                                            creacolor2(color2);
-
-                                            }
-
-
-                                        }
-
-                                    printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
-                                    printf("\t(Pulse una tecla para empezar)");
-                                    getch();
-                                    system("cls");
-                                    mainchess();
-
-                                    aux = victoria();
-
-                                    if(aux == 1){
-                                      printf("\tEl ganador es:");
-                                      ganador1();
-                                    }
-
-                                    if(aux == 2){
-                                      printf("\tEl ganador es:");
-                                      ganador2();
-                                    }
-
-                                    printf("\n\n\t(Pulse una tecla para continuar al menu principal)");
-                                    getch();
-                                    menuPrincipal();
-
-                                break;
-
-
-
-                                case 2:
-                                    system("cls");
-                                    goto menuTorneo;
-                                    free(s1);
-                                    free(s2);
-                                    free(s3);
-                                    free(s4);
-                                    free(s5);
-                                    free(s6);
-                                    free(s7);
-                                    free(s8);
-                                    free(torneo);
-                                    free(color1);
-                                    free(color2);
-                                    free(i);
-                                    free(j);
-                                    free(jugartorneo);
-                                    free(jugar);
-                                    free(color);
-                                    free(x);
-                                    free(aux);
-                                    free(num_aletorio);
-                                    free(min);
-                                    free(fstop);
-                                    free(numeros[20]);
-                                    free(players);
-
-                                break;
+                            if(aux == 1){
+                              printf("\tEl ganador es:");
+                              ganador1();
                             }
 
-                    break; //case 1, jugartorneo.
+                            if(aux == 2){
+                              printf("\tEl ganador es:");
+                              ganador2();
+                            }
 
-            }//Cierre Switch Jugartorneo.
+                            printf("\n\n\t(Pulse una tecla para continuar al menu principal)");
+                            getch();
+                            menuPrincipal();
+
+                        break;
+
+
+                        case 2:
+                            system("cls");
+                            printtorneo();
+                            free(s1);
+                            free(s2);
+                            free(s3);
+                            free(s4);
+                            free(s5);
+                            free(s6);
+                            free(s7);
+                            free(s8);
+                            free(torneo);
+                            free(color1);
+                            free(color2);
+                            free(i);
+                            free(j);
+                            free(jugartorneo);
+                            free(jugar);
+                            free(color);
+                            free(x);
+                            free(aux);
+                            free(num_aletorio);
+                            free(min);
+                            free(fstop);
+                            free(numeros[20]);
+                            free(players);
+
+                        break;
+                    }
+
+            break; //case 1, jugartorneo.
+
+
+    }//Cierre Switch Jugartorneo.
 }
 
 
@@ -1601,14 +1623,17 @@ void mainchess()
 
     if(aux == 1){
         tabla();
-        goto mueve1;
+        mueve1();
+        mueve2();
+        system("cls");
     }
 
     if(aux == 2){
         tabla();
-        goto mueve2;
+        mueve2();
+        mueve1();
+        system("cls");
     }
-
 
 
     struct COORDENADAS Curr,New;
@@ -1616,120 +1641,130 @@ void mainchess()
     tabla();
 
 
-
-
-
-
-    while(1)
-    {
-
-
-
-        if(turno%2==0)
-        {
-            mueve1:
-            interfazjugcol();
-            reanudarpartida0();
-
-            scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
-
-
-
-           if(Curr.fila == 10){
-                reanudarpartida1();
-                menupausa();
-                goto mueve2;
-
-           }
-           else
-            {
-
-
-
-            if(isupper(tablero[Curr.fila][Curr.col])>0)
-            {
-                if(mov_valido(Curr,New))
-                {
-                    tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
-                    tablero[Curr.fila][Curr.col]=' ';
-                    b_promocion();
-                    n_jakemate();
-                    n_reyaogado();
-                    n_jake();
-
-                }
-                else
-                {   printf("\nmovimiento no valido, intenta de nuevo\n");
-
-                    ++turno;
-                }
-            }
-            else
-            {   printf("\nMovimiento no valido, intente de nuevo\n");
-                sleep(2);
-
-                ++turno;
-            }
-            system("cls");
-            tabla();
-            ++turno;
-
-        }
-        }
-        else
-        {
-
-            mueve2:
-            interfazjugcol2();
-            reanudarpartida0();
-
-
-            scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
-
-
-
-           if(Curr.fila == 10){
-                reanudarpartida2();
-                menupausa();
-                goto mueve1;
-            }
-
-            else{
-               if(islower(tablero[Curr.fila][Curr.col])>0)
-               {   if(mov_valido(Curr,New))
-                {   tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
-                    tablero[Curr.fila][Curr.col]=' ';
-                     n_promocion();
-                    b_jakemate();
-                    b_reyaogado();
-                    b_jake();
-
-                }
-                else
-                {   printf("\nmovimiento no valido, intenta de nuevo\n");//se bugea
-
-                    ++turno;
-                }
-            }
-            else
-            {   ++turno;
-                printf("\nMovimiento no valido, intente de nuevo\n");
-                sleep(2);
-
-            }
-            system("cls");
-            tabla();
-            ++turno;
-
+   while(1){
+        if(turno%2 == 0){
+            mueve1();
         }
 
+        else{
+            mueve2();
+        }
 
-    }
     }
 
 
   return 0;
 }
+
+
+void mueve1(){
+    struct COORDENADAS Curr,New;
+    int turno = 0;
+
+    interfazjugcol();
+    reanudarpartida0();
+
+    scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
+
+
+   if(Curr.fila == 10){
+        reanudarpartida1();
+        menupausa();
+
+   }
+
+   else{
+        if(isupper(tablero[Curr.fila][Curr.col])>0){
+            if(mov_valido(Curr,New)){
+                tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
+                tablero[Curr.fila][Curr.col]=' ';
+                b_promocion();
+                n_jakemate();
+                n_reyaogado();
+                n_jake();
+            }
+
+            else{
+                printf("\nmovimiento no valido, intenta de nuevo\n");
+
+                ++turno;
+            }
+
+        }
+
+        else{
+            printf("\nMovimiento no valido, intente de nuevo\n");
+            sleep(2);
+
+            ++turno;
+
+        }
+
+    system("cls");
+    tabla();
+    ++turno;
+
+    }
+}
+
+
+
+void mueve2(){
+    struct COORDENADAS Curr,New;
+    int turno = 0;
+
+    interfazjugcol2();
+    reanudarpartida0();
+
+
+    scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
+
+
+
+   if(Curr.fila == 10){
+        reanudarpartida2();
+        menupausa();
+    }
+
+    else{
+       if(islower(tablero[Curr.fila][Curr.col])>0){
+            if(mov_valido(Curr,New)){
+                tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
+                tablero[Curr.fila][Curr.col]=' ';
+                n_promocion();
+                b_jakemate();
+                b_reyaogado();
+                b_jake();
+
+            }
+
+            else{
+                printf("\nmovimiento no valido, intenta de nuevo\n");//se bugea
+
+                ++turno;
+            }
+        }
+
+        else{
+            printf("\nMovimiento no valido, intente de nuevo\n");
+            sleep(2);
+
+            ++turno;
+
+
+        }
+
+
+    system("cls");
+    tabla();
+    ++turno;
+
+    }
+
+}
+
+
+
 
 void tabla()//esto se bugea
 {   struct COORDENADAS pos;
@@ -2515,10 +2550,9 @@ int rn_enjake2(struct COORDENADAS Curr)
     for(i=0;i<8;++i)
         for(j=0;j<8;++j)
             if(tablero[i][j]=='r')
-                    goto out;
-    out:
-    rnpos.fila=i;
-    rnpos.col=j;
+                rnpos.fila=i;
+                rnpos.col=j;
+
 
     unidad=tablero[Curr.fila][Curr.col];
 
@@ -2702,10 +2736,8 @@ int rb_enjake2(struct COORDENADAS Curr)
     for(i=0;i<8;++i)
         for(j=0;j<8;++j)
             if(tablero[i][j]=='R')
-                    goto out2;
-    out2:
-    rbpos.fila=i;
-    rbpos.col=j;
+                rbpos.fila=i;
+                rbpos.col=j;
 
     unidad=tablero[Curr.fila][Curr.col];
     //////////////////////////////////////////////////////////

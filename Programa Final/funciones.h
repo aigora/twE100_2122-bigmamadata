@@ -54,3 +54,9 @@ void reanudarpartida1();
 void reanudarpartida2();
 void reanudarpartida0();
 int obtencionreanudarpartida();
+void MovimientoPiezas();
+void Reglasespeciales();
+void Comoganar();
+void mueve1();
+void mueve2();
+

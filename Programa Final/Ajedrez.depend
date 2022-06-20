@@ -133,7 +133,7 @@
 	"interfazpartida.h"
 	"seleccioncolor.h"
 
-1655572780 source:c:\users\pablo\desktop\ajedrez\programa final\funciones.c
+1655728819 source:c:\users\pablo\desktop\ajedrez\programa final\funciones.c
 	<stdio.h>
 	<ctype.h>
 	<dos.h>
@@ -281,7 +281,7 @@
 	"seleccioncolor.h"
 	"menupausa.h"
 
-1655573323 c:\users\pablo\desktop\ajedrez\programa final\funciones.h
+1655725433 c:\users\pablo\desktop\ajedrez\programa final\funciones.h
 
 1655501988 c:\users\pablo\desktop\ajedrez\programa final\mainchess.h
 

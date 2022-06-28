@@ -1814,7 +1814,7 @@ void mueve2(){
 
 
 
-void tabla(char tablero[8][8])//esto se bugea
+void tabla(char tablero[8][8])
 {   struct COORDENADAS pos;
 
     int n = 0;

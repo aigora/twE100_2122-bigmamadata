@@ -78,7 +78,7 @@ void printinstruc(){
 
 
                 case 3:
-                    printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tama駉 para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
+                    printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tama帽o para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
                     printf("\t(Pulse una tecla para volver)");
                     getch();
                     system("cls");
@@ -93,7 +93,7 @@ void printinstruc(){
 
 
                 case 5:
-                    printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una peque馻 ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
+                    printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una peque帽a ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
                     printf("\t(Pulse una tecla para volver)");
                     getch();
                     system("cls");
@@ -655,12 +655,12 @@ void menuPrincipal(){
              case 2:
                 printcargarpartida();
 
-             break; //case 2, selecci髇.
+             break; //case 2, selecci贸n.
 
 
 
              case 3:
-                    printtorneo(); //Funci髇 de Torneo.
+                    printtorneo(); //Funci贸n de Torneo.
 
                 case 6:
                     system("cls");
@@ -668,12 +668,12 @@ void menuPrincipal(){
 
                 break;
 
-             break; //case 3, selecci髇.
+             break; //case 3, selecci贸n.
 
 
 
              case 4:
-                 printinstruc(); //Funci髇 de Instrucciones.
+                 printinstruc(); //Funci贸n de Instrucciones.
 
              break; //case 4, modalidad.
 
@@ -816,7 +816,7 @@ void printnuevapartida(){
 
                         }
 
-                    printf("\n\n縋REPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
+                    printf("\n\n驴PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
                     printf("\t(Pulse una tecla para empezar)");
                     getch();
                     system("cls");
@@ -1275,16 +1275,16 @@ void printtorneo(){
 
                 for (i = 0; i < torneo; i++){
                 printf("Introduzca el Nombre del Jugador %d:\t", i + 1);
-                scanf("%s", players[i].nombre); //Asignaci髇 de nombres a jugadores.
+                scanf("%s", players[i].nombre); //Asignaci贸n de nombres a jugadores.
                 aux = aux + 1;
-                players[i].num = aux; //Asignaci髇 a cada jugador de un n鷐ero desde el 1 al 4-8.
+                players[i].num = aux; //Asignaci贸n a cada jugador de un n煤mero desde el 1 al 4-8.
                 }
 
                 printf("\n\n");
 
                 srand(time(NULL));
 
-                for(i = 0; i < torneo; i++){ //Creaci髇 de una serie de los n鷐eros anteriores sin repetici髇.
+                for(i = 0; i < torneo; i++){ //Creaci贸n de una serie de los n煤meros anteriores sin repetici贸n.
                     do{
                     num_aletorio = min + rand()% (torneo - min + 1);
                     fstop = buscarNumero (num_aletorio, numeros, torneo);
@@ -1297,7 +1297,7 @@ void printtorneo(){
 
                 if (torneo == 4){
 
-                printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de n鷐eros los nombres escogidos anteriormente y que ya ten韆n un previo n鷐ero asignado.
+                printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de n煤meros los nombres escogidos anteriormente y que ya ten铆an un previo n煤mero asignado.
 
                 for (i = 0; i < torneo - 3; i++){
                     for (j = 0; j < torneo; j++){
@@ -1351,7 +1351,7 @@ void printtorneo(){
                 }//Cierre if (torneo == 4)
 
 
-                if (torneo == 8){ //Asignaremos a esa serie de n鷐eros los nombres escogidos anteriormente y que ya ten韆n un previo n鷐ero asignado.
+                if (torneo == 8){ //Asignaremos a esa serie de n煤meros los nombres escogidos anteriormente y que ya ten铆an un previo n煤mero asignado.
 
                 printf("Los emparejamientos seran los siguientes:\n\tCuartos de Final 1:");
                 for (i = 0; i < torneo - 7; i++){
@@ -1542,7 +1542,7 @@ void printtorneo(){
 
                                 }
 
-                            printf("\n\n縋REPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
+                            printf("\n\n驴PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
                             printf("\t(Pulse una tecla para empezar)");
                             getch();
                             system("cls");
@@ -1606,7 +1606,11 @@ void printtorneo(){
 
 
 
-char tablero[8][8]={     't','c','a','m','r','a','c','t',
+
+void mainchess()
+{
+    printf("error1");
+    char tablero[8][8]={     't','c','a','m','r','a','c','t',
                         'p','p','p','p','p','p','p','p',
                         '\0','\0','\0','\0','\0','\0','\0','\0',
                         '\0','\0','\0','\0','\0','\0','\0','\0',
@@ -1615,99 +1619,143 @@ char tablero[8][8]={     't','c','a','m','r','a','c','t',
                         'P','P','P','P','P','P','P','P',
                         'T','C','A','M','R','A','C','R'      };
 
-void mainchess()
-{
+
     int turno=0, aux = 0;
+    printf("error2");
 
     aux = obtencionreanudarpartida();
 
     if(aux == 1){
-        tabla();
-        mueve1();
-        mueve2();
-        system("cls");
+        tabla(tablero);
+        goto mueve1;
     }
 
     if(aux == 2){
-        tabla();
-        mueve2();
-        mueve1();
-        system("cls");
+        tabla(tablero);
+        goto mueve2;
     }
 
 
+
     struct COORDENADAS Curr,New;
+    printf("error3");
+    tabla(tablero);
 
-    tabla();
+
+printf("error4");
 
 
-   while(1){
-        if(turno%2 == 0){
-            mueve1();
+
+    while(1)
+    {
+
+
+
+        if(turno%2==0)
+        {
+            mueve1:
+            interfazjugcol();
+            reanudarpartida0();
+
+            scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
+
+
+
+           if(Curr.fila == 10){
+                reanudarpartida1();
+                menupausa();
+                goto mueve2;
+
+           }
+           else
+            {
+
+
+
+            if(isupper(tablero[Curr.fila][Curr.col])>0)
+            {
+                if(mov_valido(Curr,New,tablero))
+                {
+                    tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
+                    tablero[Curr.fila][Curr.col]=' ';
+                    b_promocion(tablero);
+                    n_jakemate(tablero);
+                    n_reyaogado(tablero);
+                    n_jake(tablero);
+
+                }
+                else
+                {   printf("\nmovimiento no valido, intenta de nuevo\n");
+
+                    ++turno;
+                }
+            }
+            else
+            {   printf("\nMovimiento no valido, intente de nuevo\n");
+                sleep(2);
+
+                ++turno;
+            }
+            system("cls");
+            tabla(tablero);
+            ++turno;
+
+        }
+        }
+        else
+        {
+
+            mueve2:
+            interfazjugcol2();
+            reanudarpartida0();
+
+
+            scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
+
+
+
+           if(Curr.fila == 10){
+                reanudarpartida2();
+                menupausa();
+                goto mueve1;
+            }
+
+            else{
+               if(islower(tablero[Curr.fila][Curr.col])>0)
+               {   if(mov_valido(Curr,New,tablero))
+                {   tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
+                    tablero[Curr.fila][Curr.col]=' ';
+                     n_promocion(tablero);
+                    b_jakemate(tablero);
+                    b_reyaogado(tablero);
+                    b_jake(tablero);
+
+                }
+                else
+                {   printf("\nmovimiento no valido, intenta de nuevo\n");//se bugea
+
+                    ++turno;
+                }
+            }
+            else
+            {   ++turno;
+                printf("\nMovimiento no valido, intente de nuevo\n");
+                sleep(2);
+
+            }
+            system("cls");
+            tabla(tablero);
+            ++turno;
+
         }
 
-        else{
-            mueve2();
-        }
 
+    }
     }
 
 
   return 0;
 }
-
-
-void mueve1(){
-    struct COORDENADAS Curr,New;
-    int turno = 0;
-
-    interfazjugcol();
-    reanudarpartida0();
-
-    scanf("%d.%d a %d.%d",&Curr.fila,&Curr.col,&New.fila,&New.col);
-
-
-   if(Curr.fila == 10){
-        reanudarpartida1();
-        menupausa();
-
-   }
-
-   else{
-        if(isupper(tablero[Curr.fila][Curr.col])>0){
-            if(mov_valido(Curr,New)){
-                tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
-                tablero[Curr.fila][Curr.col]=' ';
-                b_promocion();
-                n_jakemate();
-                n_reyaogado();
-                n_jake();
-            }
-
-            else{
-                printf("\nmovimiento no valido, intenta de nuevo\n");
-
-                ++turno;
-            }
-
-        }
-
-        else{
-            printf("\nMovimiento no valido, intente de nuevo\n");
-            sleep(2);
-
-            ++turno;
-
-        }
-
-    system("cls");
-    tabla();
-    ++turno;
-
-    }
-}
-
-
 
 void mueve2(){
     struct COORDENADAS Curr,New;
@@ -1766,7 +1814,7 @@ void mueve2(){
 
 
 
-void tabla()//esto se bugea
+void tabla(char tablero[8][8])//esto se bugea
 {   struct COORDENADAS pos;
 
     int n = 0;
@@ -1828,7 +1876,7 @@ return tablero[8][8];
 
 }
 
-void guardar()
+void guardar(char tablero[8][8])
 {
 
 
@@ -1866,7 +1914,7 @@ return tablero[8][8];
 }
 
 
-void cargar()
+void cargar(char tablero[8][8])
 {
 
 
@@ -1906,7 +1954,7 @@ return tablero[8][8];
 }
 
 
-void cargarnuevo()
+void cargarnuevo(char tablero[8][8])
 {
 
 
@@ -1945,7 +1993,7 @@ void cargarnuevo()
 
 
 
-int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
+int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New, char tablero[8][8])
 {
     char unidad,newunidad;
     int color,fila,col,i,j;
@@ -2002,10 +2050,10 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
 
     else if(unidad=='M')
     {  tablero[Curr.fila][Curr.col]='T';
-       i=mov_valido2(Curr,New);
+       i=mov_valido2(Curr,New, tablero);
 
        tablero[Curr.fila][Curr.col]='A';
-       j=mov_valido2(Curr,New);
+       j=mov_valido2(Curr,New,tablero);
 
        tablero[Curr.fila][Curr.col]='M';
 
@@ -2014,10 +2062,10 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
 
     else if(unidad=='m')
     {  tablero[Curr.fila][Curr.col]='t';
-       i=mov_valido2(Curr,New);
+       i=mov_valido2(Curr,New,tablero);
 
        tablero[Curr.fila][Curr.col]='a';
-       j=mov_valido2(Curr,New);
+       j=mov_valido2(Curr,New,tablero);
 
        tablero[Curr.fila][Curr.col]='m';
 
@@ -2383,7 +2431,7 @@ int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New)
 
 }
 
-int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)
+int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New, char tablero[8][8])
 {
 
     int s;
@@ -2393,7 +2441,7 @@ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)
     unidad=tablero[Curr.fila][Curr.col];
     newunidad=tablero[New.fila][New.col];
 
-    s=mov_valido2(Curr,New);
+    s=mov_valido2(Curr,New,tablero);
 
     if(s==0)
         return 0;
@@ -2435,7 +2483,7 @@ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New)
 }
 
 
-int b_total_mov_validos()
+int b_total_mov_validos(char tablero[8][8])
 {
     int num_mov_validos=0;
     struct COORDENADAS Curr,New;
@@ -2448,7 +2496,7 @@ int b_total_mov_validos()
                 for(New.fila=0;New.fila<8;++New.fila)
                     for(New.col=0;New.col<8;++New.col)
 
-                        if(mov_valido(Curr,New))
+                        if(mov_valido(Curr,New,tablero))
                             ++num_mov_validos;
 
 
@@ -2458,7 +2506,7 @@ int b_total_mov_validos()
 
 
 
-int n_total_mov_validos()
+int n_total_mov_validos(char tablero[8][8])
 {
     int num_mov_validos=0;
     struct COORDENADAS Curr,New;
@@ -2471,7 +2519,7 @@ int n_total_mov_validos()
                 for(New.fila=0;New.fila<8;++New.fila)
                     for(New.col=0;New.col<8;++New.col)
 
-                        if(mov_valido(Curr,New))
+                        if(mov_valido(Curr,New,tablero))
                             ++num_mov_validos;
 
 
@@ -2480,9 +2528,9 @@ int n_total_mov_validos()
 }
 
 
-void b_jakemate()
+void b_jakemate(char tablero[8][8])
 {
-    if(rb_enjake()==1&&b_total_mov_validos()==0)
+    if(rb_enjake()==1&&b_total_mov_validos(tablero)==0)
     {       printf("\nJake mate, ganan negras\n");
             ganador1();
             printf("\n\n\t(Pulse una tecla para continuar al menu principal)");
@@ -2494,9 +2542,9 @@ void b_jakemate()
 
 }
 
-void n_jakemate()
+void n_jakemate(char tablero[8][8])
 {
-    if((rn_enjake()==1)&&(n_total_mov_validos()==0))
+    if((rn_enjake()==1)&&(n_total_mov_validos(tablero)==0))
     {       printf("\nJake mate, ganan blancas\n");
             ganador2();
             printf("\n\n\t(Pulse una tecla para continuar al menu principal)");
@@ -2507,23 +2555,23 @@ void n_jakemate()
 
 }
 
-void b_jake()
+void b_jake(char tablero[8][8])
 {
-    if(rb_enjake()==1&&b_total_mov_validos()>0)
+    if(rb_enjake()==1&&b_total_mov_validos(tablero)>0)
             printf("\nJake\n");
 
 }
 
-void n_jake()
+void n_jake(char tablero[8][8])
 {
-    if(rn_enjake()==1&&n_total_mov_validos()>0)
+    if(rn_enjake()==1&&n_total_mov_validos(tablero)>0)
             printf("\nJake\n");
 
 }
 
-void b_reyaogado()
+void b_reyaogado(char tablero[8][8])
 {
-    if(rb_enjake()==0&&b_total_mov_validos()==0)
+    if(rb_enjake()==0&&b_total_mov_validos(tablero)==0)
     {   printf("\nEmpate, rey ahogado\n");
         exit(0);
     }
@@ -2531,16 +2579,16 @@ void b_reyaogado()
 }
 
 
-void n_reyaogado()
+void n_reyaogado(char tablero[8][8])
 {
-    if(rn_enjake()==0&&b_total_mov_validos()==0)
+    if(rn_enjake()==0&&b_total_mov_validos(tablero)==0)
     {   printf("\nEmpate, rey ahogado\n");
         exit(0);
     }
 
 }
 
-int rn_enjake2(struct COORDENADAS Curr)
+int rn_enjake2(struct COORDENADAS Curr,char tablero[8][8])
 {
 
     int i,j,fila,col;
@@ -2552,6 +2600,7 @@ int rn_enjake2(struct COORDENADAS Curr)
             if(tablero[i][j]=='r')
                 rnpos.fila=i;
                 rnpos.col=j;
+
 
 
     unidad=tablero[Curr.fila][Curr.col];
@@ -2579,10 +2628,10 @@ int rn_enjake2(struct COORDENADAS Curr)
 
     else if(unidad=='M')
     {   tablero[Curr.fila][Curr.col]='T';
-        i=rn_enjake2(Curr);
+        i=rn_enjake2(Curr,tablero);
 
         tablero[Curr.fila][Curr.col]='A';
-        j=rn_enjake2(Curr);
+        j=rn_enjake2(Curr,tablero);
 
         tablero[Curr.fila][Curr.col]='M';
 
@@ -2726,7 +2775,7 @@ int rn_enjake2(struct COORDENADAS Curr)
 }
 
 
-int rb_enjake2(struct COORDENADAS Curr)
+int rb_enjake2(struct COORDENADAS Curr, char tablero[8][8])
 {
 
     int i,j,fila,col;
@@ -2738,6 +2787,8 @@ int rb_enjake2(struct COORDENADAS Curr)
             if(tablero[i][j]=='R')
                 rbpos.fila=i;
                 rbpos.col=j;
+
+
 
     unidad=tablero[Curr.fila][Curr.col];
     //////////////////////////////////////////////////////////
@@ -2764,10 +2815,10 @@ int rb_enjake2(struct COORDENADAS Curr)
 
     else if(unidad=='m')
     {   tablero[Curr.fila][Curr.col]='t';
-        i=rb_enjake2(Curr);
+        i=rb_enjake2(Curr,tablero);
 
         tablero[Curr.fila][Curr.col]='a';
-        j=rb_enjake2(Curr);
+        j=rb_enjake2(Curr,tablero);
 
         tablero[Curr.fila][Curr.col]='m';
 
@@ -2912,24 +2963,24 @@ int rb_enjake2(struct COORDENADAS Curr)
 
 
 
-int rb_enjake()
+int rb_enjake(char tablero[8][8])
 {   struct COORDENADAS pos;
 
     for(pos.fila=0;pos.fila<8;++pos.fila)
                 for(pos.col=0;pos.col<8;++pos.col)
-                    if(rb_enjake2(pos))
+                    if(rb_enjake2(pos,tablero))
                         return 1;
     return 0;
 }
 
 
 
-int rn_enjake()
+int rn_enjake(char tablero[8][8])
 {   struct COORDENADAS pos;
 
     for(pos.fila=0;pos.fila<8;++pos.fila)
                 for(pos.col=0;pos.col<8;++pos.col)
-                    if(rn_enjake2(pos))
+                    if(rn_enjake2(pos,tablero))
                         return 1;
     return 0;
 }
@@ -2938,7 +2989,7 @@ int rn_enjake()
 
 
 
-void b_promocion()
+void b_promocion(char tablero[8][8])
 {   int i=0,j;
     char unidad;
     for(j=0;j<8;++j)
@@ -2966,7 +3017,7 @@ void b_promocion()
 
 
 
-void n_promocion()
+void n_promocion(char tablero[8][8])
 {   int i=7,j;
     char unidad;
     for(j=0;j<8;++j)
@@ -2991,12 +3042,6 @@ void n_promocion()
 
 }
 
-void delay(double sec)
-{
-    clock_t start = clock();
 
-    while ((clock() - start) / CLOCKS_PER_SEC < sec)
-        ;
-}
 
 

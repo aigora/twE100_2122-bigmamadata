@@ -59,8 +59,4 @@ void Reglasespeciales();
 void Comoganar();
 void mueve1();
 void mueve2();
-void Falso0();
-void Falso1();
-void Falso2();
-int obtencionFalso();
 void delay(double sec);

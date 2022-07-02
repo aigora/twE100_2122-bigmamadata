@@ -753,10 +753,7 @@ void printnuevapartida(){
                     system("cls");
 
                     aux2 = obtencionsalidamenu();
-
-                    if(aux2 == 1){
-                        cargarnuevo();
-                    }
+            
 
                     mainchess();
                     free(color1);

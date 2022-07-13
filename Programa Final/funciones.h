@@ -1,14 +1,26 @@
+struct COORDENADAS
+{   int fila;
+    int col;
+};
+
+
+typedef struct{
+    char nombre[20];
+    int num;
+} jugador;
+
+
 void printcargarpartida();
 void printinstruc();
-void interfazjugcol();
-void interfazjugcol2();
+int interfazjugcol();
+int interfazjugcol2();
 void creafichero1(char n[]);
 void creafichero2(char n[]);
 void creacolor1(char color1[]);
 void creacolor2(char color2[]);
 void ficheroColorUp();
 void ficheroColorDown();
-void interfazparcolUp();
+int interfazparcolUp();
 void interfazparcolDown();
 void menupausa();
 void menuPrincipal();
@@ -23,16 +35,18 @@ void reconocimientoganador2();
 void seleccion1();
 void seleccion2();
 int obtencion();
+int obtencionsalidamenu();
+void salidamenuprincipal();
 void seleccionmenu1();
 void seleccionmenu2();
 int obtencionmenu();
 void borradoobtencionmenu();
 int buscarNumero(int numero, int vector[], int n);
 void printtorneo();
-int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New);
-int mov_valido(struct COORDENADAS,struct COORDENADAS);
-int rn_enjake2(struct COORDENADAS);
-int rb_enjake2(struct COORDENADAS);
+int mov_valido2(struct COORDENADAS Curr,struct COORDENADAS New, char tablero[8][8]);
+int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New, char tablero[8][8]);
+int rn_enjake2(struct COORDENADAS,char tablero[8][8]);
+int rb_enjake2(struct COORDENADAS, char tablero[8][8]);
 int rn_enjake();
 int rb_enjake();
 int n_total_mov_validos();
@@ -59,4 +73,5 @@ void Reglasespeciales();
 void Comoganar();
 void mueve1();
 void mueve2();
-void delay(double sec);
+
+

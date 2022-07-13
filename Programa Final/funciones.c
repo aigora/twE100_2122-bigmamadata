@@ -1,21 +1,13 @@
+
 #include <stdio.h>
 #include <ctype.h>
 #include <dos.h>
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include "funciones.h"
 
 
-struct COORDENADAS
-{   int fila;
-    int col;
-};
-
-
-typedef struct{
-    char nombre[20];
-    int num;
-} jugador;
 
 
 void printcargarpartida(){
@@ -59,22 +51,22 @@ void printinstruc(){
                 case 1:
                     printf("\nLa posicion inicial de las piezas es siempre la misma. La segunda fila se encuentra ocupada por 8 peones.\nLas torres ocupan las esquinas, y los dos caballos se situan a sus lados, seguidos por los alfiles.\nAl lado de estos, la reina (o dama) ocupa siempre la casilla de su propio color (la dama blanca en una casilla blanca;\nla negra, en una casilla negra). Por ultimo, el rey se situa al lado de la reina, en la casilla restante.\n");
                     printf("\t(Pulse una tecla para volver)");
-                    getch();
+
                     system("cls");
                     printinstruc();
                 break;
 
 
                 case 2:
-                    MovimientoPiezas();getch();
+                    MovimientoPiezas();
 
                 break;
 
 
                 case 3:
-                    printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tamaÃ±o para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
+                    printf("\n\nLa partida solicitara realizar los movimientos segun el turno de cada usuario. Para ello, cada pieza tiene asignada\nuna coordenada compuesta del 0 al 7 para las filas y del mismo tamaño para las columnas. Es decir, la torre izquierda\nde las blancas se correspondera con la coordenada '7.0'.\nPara realizar un movimiento debemos indicar la coordenada de la pieza (por ejemplo, '5.1') seguido de un ' a '(con sus\ndebidos espacios antes y despues) y la coordenada donde se desea desplazar ('6.3'), siempre y cuando el movimiento este\npermitido.\n");
                     printf("\t(Pulse una tecla para volver)");
-                    getch();
+
                     system("cls");
                     printinstruc();
                     break;
@@ -87,9 +79,9 @@ void printinstruc(){
 
 
                 case 5:
-                    printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una pequeÃ±a ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
+                    printf("\n\nEl jugador con las piezas blancas siempre es el primero en mover. Las blancas realizan la primera jugada, seguida del\nprimer movimiento de las negras, despues mueven blancas de nuevo, y asi sucesiva y alternativamente hasta el final de\nla partida. El jugador que mueve primero tiene una pequeña ventaja porque puede llevar la iniciativa y atacar\ninmediatamente.\n");
                     printf("\t(Pulse una tecla para volver)");
-                    getch();
+
                     system("cls");
                     printinstruc();
                 break;
@@ -128,7 +120,7 @@ void MovimientoPiezas(){
                 case 1:
                     printf("\n\nEl rey es la pieza mas importante, pero tambien una de las mas debiles. El rey solo puede avanzar una casilla\nen cualquier direccion: hacia arriba, hacia abajo, hacia los lados o en diagonal. En ningun caso el rey puede moverse\na una casilla en la que estaria en jaque, es decir, en la que pudiera ser capturado.\n");
                     printf("\t(Pulse una tecla para volver)");
-                    getch();
+
                     system("cls");
                     MovimientoPiezas();
                 break;
@@ -294,7 +286,7 @@ void Comoganar(){
 
 
 
-void interfazjugcol(){
+int interfazjugcol(){
         FILE *Jugador11;
            Jugador11 = fopen("NombreJugador1.txt", "r");
            if (Jugador11 == NULL) {
@@ -342,7 +334,7 @@ void interfazjugcol(){
 
 
 
-void interfazjugcol2(){
+int interfazjugcol2(){
         FILE *Jugador22;
            Jugador22 = fopen("NombreJugador2.txt", "r");
            if (Jugador22 == NULL) {
@@ -476,7 +468,7 @@ void ficheroColorDown(){
 
 
 
-void interfazparcolUp(){
+int interfazparcolUp(){
          FILE *ColorUp;
        ColorUp = fopen("ColorUp.txt", "r");
        if (ColorUp == NULL) {
@@ -592,7 +584,7 @@ void menuPrincipal(){
 
 
              case 3:
-                    printtorneo(); //FunciÃ³n de Torneo.
+                    printtorneo(); //Función de Torneo.
 
                 case 6:
                     system("cls");
@@ -604,7 +596,7 @@ void menuPrincipal(){
 
 
              case 4:
-                 printinstruc(); //FunciÃ³n de Instrucciones.
+                 printinstruc(); //Función de Instrucciones.
              break;
 
 
@@ -747,17 +739,16 @@ void printnuevapartida(){
 
                     }
 
-                    printf("\n\nÂ¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
+                    printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", player1.nombre, player2.nombre);
                     printf("\t(Pulse una tecla para empezar)");
                     getch();
                     system("cls");
 
                     aux2 = obtencionsalidamenu();
-            
+
 
                     mainchess();
-                    free(color1);
-                    free(color2);
+
 
         break; //case 1, modalidad.
 
@@ -1111,16 +1102,16 @@ void printtorneo(){
 
                 for (i = 0; i < torneo; i++){
                 printf("Introduzca el Nombre del Jugador %d:\t", i + 1);
-                scanf("%s", players[i].nombre); //AsignaciÃ³n de nombres a jugadores.
+                scanf("%s", players[i].nombre); //Asignación de nombres a jugadores.
                 aux = aux + 1;
-                players[i].num = aux; //AsignaciÃ³n a cada jugador de un nÃºmero desde el 1 al 4-8.
+                players[i].num = aux; //Asignación a cada jugador de un número desde el 1 al 4-8.
                 }
 
                 printf("\n\n");
 
                 srand(time(NULL));
 
-                for(i = 0; i < torneo; i++){ //CreaciÃ³n de una serie de los nÃºmeros anteriores sin repeticiÃ³n.
+                for(i = 0; i < torneo; i++){ //Creación de una serie de los números anteriores sin repetición.
                     do{
                     num_aletorio = min + rand()% (torneo - min + 1);
                     fstop = buscarNumero (num_aletorio, numeros, torneo);
@@ -1132,7 +1123,7 @@ void printtorneo(){
 
 
                 if (torneo == 4){
-                printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de nÃºmeros los nombres escogidos anteriormente y que ya tenÃ­an un previo nÃºmero asignado.
+                printf("Los emparejamientos seran los siguientes:\n\tSemifinal 1:"); //Asignaremos a esa serie de números los nombres escogidos anteriormente y que ya tenían un previo número asignado.
 
                 for (i = 0; i < torneo - 3; i++){
                     for (j = 0; j < torneo; j++){
@@ -1185,7 +1176,7 @@ void printtorneo(){
                 }//Cierre if (torneo == 4)
 
 
-                if (torneo == 8){ //Asignaremos a esa serie de nÃºmeros los nombres escogidos anteriormente y que ya tenÃ­an un previo nÃºmero asignado.
+                if (torneo == 8){ //Asignaremos a esa serie de números los nombres escogidos anteriormente y que ya tenían un previo número asignado.
 
                 printf("Los emparejamientos seran los siguientes:\n\tCuartos de Final 1:");
                 for (i = 0; i < torneo - 7; i++){
@@ -1382,7 +1373,7 @@ void printtorneo(){
                             }
 
 
-                            printf("\n\nÂ¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
+                            printf("\n\n¿PREPARADOS? VA A EMPEZAR LA PARTIDA, %s VS %s\n", s1, s2);
                             printf("\t(Pulse una tecla para empezar)");
                             getch();
                             system("cls");
@@ -1409,29 +1400,7 @@ void printtorneo(){
                         case 2:
                             system("cls");
                             printtorneo();
-                            free(s1);
-                            free(s2);
-                            free(s3);
-                            free(s4);
-                            free(s5);
-                            free(s6);
-                            free(s7);
-                            free(s8);
-                            free(torneo);
-                            free(color1);
-                            free(color2);
-                            free(i);
-                            free(j);
-                            free(jugartorneo);
-                            free(jugar);
-                            free(color);
-                            free(x);
-                            free(aux);
-                            free(num_aletorio);
-                            free(min);
-                            free(fstop);
-                            free(numeros[20]);
-                            free(players);
+
 
                             break;
                         }
@@ -1456,7 +1425,7 @@ void mainchess()
                         'P','P','P','P','P','P','P','P',
                         'T','C','A','M','R','A','C','R'      };
 
-    int turno=0, aux = 0;
+    int  aux = 0;
     aux = obtencionreanudarpartida();
 
     if(aux == 1){
@@ -1483,7 +1452,7 @@ void mainchess()
             mueve2(tablero);
         }
 
-    return 0;
+
 }
 
 
@@ -1505,7 +1474,7 @@ void mueve1(char tablero[8][8]){
 
    else{
         if(isupper(tablero[Curr.fila][Curr.col])>0){
-            if(mov_valido(Curr,New)){
+            if(mov_valido(  Curr, New,tablero)){
                 tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
                 tablero[Curr.fila][Curr.col]=' ';
                 b_promocion();
@@ -1523,7 +1492,7 @@ void mueve1(char tablero[8][8]){
 
         else{
             printf("\nMovimiento no valido, intente de nuevo\n");
-            sleep(2);
+
             ++turno;
         }
 
@@ -1554,7 +1523,7 @@ void mueve2(char tablero[8][8]){
 
     else{
        if(islower(tablero[Curr.fila][Curr.col])>0){
-            if(mov_valido(Curr,New)){
+            if(mov_valido(Curr,New,tablero)){
                 tablero[New.fila][New.col]=tablero[Curr.fila][Curr.col];
                 tablero[Curr.fila][Curr.col]=' ';
                 n_promocion();
@@ -1572,7 +1541,6 @@ void mueve2(char tablero[8][8]){
 
         else{
             printf("\nMovimiento no valido, intente de nuevo\n");
-            sleep(2);
 
             ++turno;
 
@@ -1596,7 +1564,7 @@ void tabla(char tablero[8][8])//esto se bugea
     n = obtencion();
 
     if(n == 1){
-        int numero = 0;
+
         ficheroColorUp();
         interfazparcolUp();
         fflush(stdin);
@@ -1617,7 +1585,7 @@ void tabla(char tablero[8][8])//esto se bugea
     }
 
         if(n == 2){
-        int numero = 0;
+
 
         ficheroColorDown();
         interfazparcolDown();
@@ -1640,7 +1608,7 @@ void tabla(char tablero[8][8])//esto se bugea
 
         }
 
-    return tablero[8][8];
+
 }
 
 
@@ -1656,7 +1624,7 @@ void guardar(char tablero[8][8])
     if (guardado == NULL)
       {
       printf("Error al abrir el fichero.\n");
-      return -1;
+
       }
 
     else
@@ -1669,7 +1637,7 @@ void guardar(char tablero[8][8])
          }
        fclose(guardado);
         }
-    return tablero[8][8];
+
 }
 
 
@@ -1696,7 +1664,7 @@ void cargar(char tablero[8][8])
 
       fclose(carga);
 
-    return tablero[8][8];
+
 
 }
 
@@ -2183,7 +2151,7 @@ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New, char tablero[8][8
             tablero[Curr.fila][Curr.col]='\0';
             for(pos.fila=0;pos.fila<8;++pos.fila)
                 for(pos.col=0;pos.col<8;++pos.col)
-                    if(rb_enjake2(pos))
+                    if(rb_enjake2(pos,tablero))
                     {   tablero[New.fila][New.col]=newunidad;
                         tablero[Curr.fila][Curr.col]=unidad;
                         return 0;
@@ -2197,7 +2165,7 @@ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New, char tablero[8][8
             tablero[Curr.fila][Curr.col]='\0';
             for(pos.fila=0;pos.fila<8;++pos.fila)
                 for(pos.col=0;pos.col<8;++pos.col)
-                    if(rn_enjake2(pos))
+                    if(rn_enjake2(pos,tablero))
                     {   tablero[New.fila][New.col]=newunidad;
                         tablero[Curr.fila][Curr.col]=unidad;
                         return 0;
@@ -2210,7 +2178,7 @@ int mov_valido(struct COORDENADAS Curr,struct COORDENADAS New, char tablero[8][8
 
     }
 
-
+return 0;
 }
 
 
@@ -2329,8 +2297,11 @@ int rn_enjake2(struct COORDENADAS Curr,char tablero[8][8])
     for(i=0;i<8;++i)
         for(j=0;j<8;++j)
             if(tablero[i][j]=='r')
-                rnpos.fila=i;
+            {
+                 rnpos.fila=i;
                 rnpos.col=j;
+            }
+
 
 
 
@@ -2502,7 +2473,7 @@ int rn_enjake2(struct COORDENADAS Curr,char tablero[8][8])
     else
         return 0;
 
-
+return 0;
 }
 
 
@@ -2516,8 +2487,11 @@ int rb_enjake2(struct COORDENADAS Curr, char tablero[8][8])
     for(i=0;i<8;++i)
         for(j=0;j<8;++j)
             if(tablero[i][j]=='R')
-                rbpos.fila=i;
+            {
+                 rbpos.fila=i;
                 rbpos.col=j;
+            }
+
 
 
 
@@ -2689,7 +2663,7 @@ int rb_enjake2(struct COORDENADAS Curr, char tablero[8][8])
     else
         return 0;
 
-
+return 0;
 }
 
 
@@ -2772,5 +2746,4 @@ void n_promocion(char tablero[8][8])
 
 
 }
-
 

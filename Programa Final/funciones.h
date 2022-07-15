@@ -74,4 +74,3 @@ void Comoganar();
 void mueve1();
 void mueve2();
 
-

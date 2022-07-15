@@ -1,10 +1,10 @@
-
 #include <stdio.h>
 #include <ctype.h>
 #include <dos.h>
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <conio.h>
 #include "funciones.h"
 
 
@@ -330,6 +330,8 @@ int interfazjugcol(){
              fclose(Jugador11);
              free(color11);
              fclose(Color11);
+
+             return 0;
 }
 
 
@@ -378,6 +380,8 @@ int interfazjugcol2(){
             fclose(Jugador22);
             free(color22);
             fclose(Color22);
+
+            return 0;
 }
 
 
@@ -491,6 +495,9 @@ int interfazparcolUp(){
          printf("      %s       ", colorUp);
          free(colorUp);
          fclose(ColorUp);
+
+    return 0;
+
     }
 
 
@@ -500,7 +507,6 @@ void interfazparcolDown(){
                ColorDown = fopen("ColorDown.txt", "r");
                if (ColorDown == NULL) {
                 perror("No se ha podido abrir.\n");
-                return 1;
                 }
                 fseek(ColorDown, 0, SEEK_END);
                 int num_elementos_colordown = ftell(ColorDown);
@@ -508,12 +514,11 @@ void interfazparcolDown(){
                 char *colorDown = (char*) calloc(sizeof(char), num_elementos_colordown);
                 if(colorDown == NULL){
                     perror("No se ha podido abrir.\n");
-                    return 2;
                 }
                 int num_elementos_leidos_colordown = fread(colorDown, sizeof(char), num_elementos_colordown, ColorDown);
                 if(num_elementos_leidos_colordown != num_elementos_colordown){
                     perror("No se ha podido abrir.\n");
-                    return 3;
+
                 }
                  printf("      %s       ", colorDown);
                  free(colorDown);
@@ -607,8 +612,6 @@ void menuPrincipal(){
 
         } //cierre switch seleccion.
 
-    return 0;
-
 } //cierre main;
 
 
@@ -627,7 +630,7 @@ void cambio (char palabra[], int n){
 void printnuevapartida(){
     jugador player1;
     jugador player2;
-    int modalidad, color, x = 0, indicacion = 0, aux = 0, aux2 = 0;
+    int modalidad, color, x = 0, aux2 = 0;
     char color1[20] = {}, color2[20] = {};
 
     do{
@@ -2746,4 +2749,3 @@ void n_promocion(char tablero[8][8])
 
 
 }
-
